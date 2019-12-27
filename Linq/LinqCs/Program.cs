@@ -10,7 +10,7 @@ namespace LinqCs
             var a1 = new string[] { "foo", "bar", "boo", "ham", "spam", "egg" };
             Console.WriteLine(string.Join(" ", a1.Skip(1)));
             // ↓ Syntax Error
-            Console.WriteLine(string.Join(" ", from s in a1 select s skip 1));
+            //Console.WriteLine(string.Join(" ", from s in a1 select s skip 1));
         }
     }
 }
