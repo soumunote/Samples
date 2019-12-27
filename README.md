@@ -11,6 +11,7 @@ Sample Projects form my buddies and me.
 | [LaunchExcel](./LaunchExcel) | C++/COMによるEXCEL起動 |
 | [Linq](./Linq) | Linq C#, VB の違い (現在はSkipのみ) |
 | [Oci](./Oci) | OCI(Oracle Call Interface)接続だけのサンプル |
+| [PS](./PS) | PowerShell 実際使った例集 |
 | [RaspberryPiGPIO](./RaspberryPiGPIO) | PythonによるRaspberryPI GPIO制御 |
 | [ReactTraverseChildren](./ReactTraverseChildren) | Reactでの子コントロールのトラバース |
 | [ReduxActions](./ReduxActions) | Reduxの初歩 |
