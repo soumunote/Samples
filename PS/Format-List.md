@@ -1,16 +1,16 @@
 # Format-List
 リスト表示されるコマンドレットの実行結果を縦表示する。
-``
+```
 PS> get-command dotnet
 
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
 Application     dotnet.exe                                         3.100.1... C:\Program Files\dotnet\dotnet.exe
-``
+```
 
 Format-List を通すと
-``
-PS> get-command dotnet | **Format-List**
+```
+PS> get-command dotnet | Format-List
 Name            : dotnet.exe
 CommandType     : Application
 Definition      : C:\Program Files\dotnet\dotnet.exe
@@ -29,4 +29,4 @@ FileVersionInfo : File:             C:\Program Files\dotnet\dotnet.exe
                   PrivateBuild:     False
                   SpecialBuild:     False
                   Language:         英語 (米国)
-``
+```
