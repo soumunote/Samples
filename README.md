@@ -9,6 +9,7 @@ Sample Projects form my buddies and me.
 | [ExcelVBAOnTime](./ExcelVBAOnTime) | EXCEL VBA の Application.OnTime メソッドによるタイマ実行 |
 | [HandleMouseMessageVB6](./HandleMouseMessageVB6) | ウィンドウサブクラス化によるValidateイベントの抑制 |
 | [LaunchExcel](./LaunchExcel) | C++/COMによるEXCEL起動 |
+| [Linq](./Linq) | Linq C#, VB の違い (現在はSkipのみ) |
 | [Oci](./Oci) | OCI(Oracle Call Interface)接続だけのサンプル |
 | [RaspberryPiGPIO](./RaspberryPiGPIO) | PythonによるRaspberryPI GPIO制御 |
 | [ReactTraverseChildren](./ReactTraverseChildren) | Reactでの子コントロールのトラバース |
