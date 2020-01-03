@@ -6,6 +6,7 @@ Sample Projects form my buddies and me.
 | [Async](./Async) | JavaScript 及び C# での async |
 | [Babel](./Babel) | Babel ... トランスパイル等の調査 |
 | [CppSwitch](./CppSwitch) | C++17 switch |
+| (CppVtbl)(./CppVtbl) || C++ vtbl を介して仮想関数を直接
 | [ExcelVBAOnTime](./ExcelVBAOnTime) | EXCEL VBA の Application.OnTime メソッドによるタイマ実行 |
 | [HandleMouseMessageVB6](./HandleMouseMessageVB6) | ウィンドウサブクラス化によるValidateイベントの抑制 |
 | [LaunchExcel](./LaunchExcel) | C++/COMによるEXCEL起動 |
