@@ -64,9 +64,3 @@ Private Sub TimerCountUpSub(Optional bInitialize As Boolean)
     Application.OnTime nextTime, "TimerCountUpSub"
 
 End Sub
-
-
-Public Sub TimerInitSub()
-    nWatchDogCounter = 0
-End Sub
-
