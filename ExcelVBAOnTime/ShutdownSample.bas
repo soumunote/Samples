@@ -15,7 +15,7 @@ End Sub
 ' ■処理開始/ユーザアクション有り■
 ' ... 起動後や何か処理をするたびに本ルーチンをコールしタイマを初期化起動する
 '
-Private Sub TimerInitializeSub()
+Public Sub TimerInitializeSub()
     TimerCountUpSub bInitialize:=True
 End Sub
 
