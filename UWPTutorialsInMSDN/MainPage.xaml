@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="UWPTutorialsInMSDN.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPTutorialsInMSDN"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <local:BoxPanel>
+        <Grid BorderBrush="Blue" BorderThickness="12" CornerRadius="12" Padding="12">
+            <TextBlock Text="foo"/>
+        </Grid>
+        <Grid BorderBrush="Blue" BorderThickness="12" CornerRadius="12" Padding="12">
+            <TextBlock Text="bar"/>
+        </Grid>
+        <Grid BorderBrush="Blue" BorderThickness="12" CornerRadius="12" Padding="12">
+            <TextBlock Text="boo"/>
+        </Grid>
+        <Grid BorderBrush="Blue" BorderThickness="12" CornerRadius="12" Padding="12">
+            <TextBlock Text="buz"/>
+        </Grid>
+        <Grid BorderBrush="Blue" BorderThickness="12" CornerRadius="12" Padding="12">
+            <TextBlock Text="Hoge"/>
+        </Grid>
+    </local:BoxPanel>
+</Page>
