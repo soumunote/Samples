@@ -19,5 +19,7 @@ Sample Projects form my buddies and me.
 | [ReduxRouting](./ReduxRouting) | Reduxによるページナビゲーション(Login) |
 | [SignalTestOnDocker](./SignalTestOnDocker) | シグナルを使用してDockerの動作確認 |
 | [SingletonCpp](./SingletonCpp)| Singletonパターン |
+| [UWPTutorialsInMSDN](./UWPTutorialsInMSDN) | UWP学習のために、MSDNのドキュメントを入力している |
+| [UwpByCpp](./UwpByCpp) | C++/CX でUWP作成してみた |
 | [Win32Pipe](./Win32Pipe) | Win32パイプ |
 
