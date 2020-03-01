@@ -52,6 +52,6 @@ Console.WriteLine("{0,9:N2}|{1,9:D5}|{2,9:D5}|", 12345.678, 12, -12);
 Console.WriteLine($"チロルは{10:C}");
 チロルは¥10
 ```
-フォーマットの指定は、format strings の インデックスが、値にそのまま置き換わっただけである
+フォーマットの指定は、format strings の インデックスが、値にそのまま置き換わっただけである  
 [{値[,アライメント][:フォーマット文字列]}](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated#structure-of-an-interpolated-string)
 
