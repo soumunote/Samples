@@ -7,6 +7,7 @@ Sample Projects form my buddies and me.
 | [Babel](./Babel) | Babel ... トランスパイル等の調査 |
 | [CppSwitch](./CppSwitch) | C++17 switch |
 | [CppVtbl](./CppVtbl) | C++ vtbl を介して仮想関数を直接CALL |
+| [CreateAdUserByVBS](./CreateAdUserByVBS) | VBScriptによるActiveDirectoryユーザ作成とグループ参加 |
 | [ExcelVBAOnTime](./ExcelVBAOnTime) | EXCEL VBA の Application.OnTime メソッドによるタイマ実行 |
 | [HandleMouseMessageVB6](./HandleMouseMessageVB6) | ウィンドウサブクラス化によるValidateイベントの抑制 |
 | [LaunchExcel](./LaunchExcel) | C++/COMによるEXCEL起動 |
