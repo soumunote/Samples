@@ -13,7 +13,7 @@ $vCenterUser    = 'administrator@vsphere.local'
 $vCenterPasswd  = 'P@assw0rd'
 $hostUser       = 'root'
 $hostPasswd     = 'P2ssw0rd'
-$pewerOnVMs     = 'c:\s-max\PowerOnVMs.txt'
+$pewerOnVMs     = 'c:\tooldir\PowerOnVMs.txt'
 $ESXCLI         = 'C:\Program Files (x86)\VMware\VMware vSphere CLI\bin\esxcli.exe'
 
 #
