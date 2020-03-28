@@ -1,0 +1,8 @@
+@rem ************************************************************
+@rem
+@rem  iSCSIを再スキャンする(NASの電源切れ対応用)
+@rem
+@rem ************************************************************
+
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe C:\s-max\rescan-iSCSI.ps1
+
