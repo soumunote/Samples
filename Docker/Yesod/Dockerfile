@@ -1,8 +1,8 @@
 FROM ubuntu
 MAINTAINER soumunote <soumunote@gmail.com>
 
-RUN apt update && \
-    apt install -y curl vim && \
+RUN apt-get update && \
+    apt-get install -y curl vim && \
     curl -sSL https://get.haskellstack.org/ | sh && \
     stack new my-project yesodweb/sqlite && cd my-project && \
     stack build && \
