@@ -1,3 +1,3 @@
 ```
-docker build -t タグ名
+docker build -t タグ名 .
 ```
