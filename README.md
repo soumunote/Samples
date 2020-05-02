@@ -10,6 +10,8 @@ Sample Projects form my buddies and me.
 | [CreateAdUserByVBS](./CreateAdUserByVBS) | VBScriptによるActiveDirectoryユーザ作成とグループ参加 |
 | [ExcelVBAOnTime](./ExcelVBAOnTime) | EXCEL VBA の Application.OnTime メソッドによるタイマ実行 |
 | [HandleMouseMessageVB6](./HandleMouseMessageVB6) | ウィンドウサブクラス化によるValidateイベントの抑制 |
+| [Haskell](..Haskell) | Haskell のショートサンプル |
+| [haskell-wai] | Haskell Wai (Yesod Web Framework の一部を使用したサンプル) |
 | [LaunchExcel](./LaunchExcel) | C++/COMによるEXCEL起動 |
 | [Linq](./Linq) | Linq C#, VB の違い (現在はSkipのみ) |
 | [Oci](./Oci) | OCI(Oracle Call Interface)接続だけのサンプル |
