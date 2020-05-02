@@ -1,0 +1,54 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 0b7303598dfc9782268a4b57d6a8a15522fb59a94db58a9330bae185042bb86b
+
+name:           HelloWorld
+version:        0.1.0.0
+build-type:     Simple
+
+library
+  other-modules:
+      Paths_HelloWorld
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , http-types
+    , wai
+    , warp
+  default-language: Haskell2010
+
+executable HelloWorld-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_HelloWorld
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HelloWorld
+    , base >=4.7 && <5
+    , http-types
+    , wai
+    , warp
+  default-language: Haskell2010
+
+test-suite HelloWorld-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_HelloWorld
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HelloWorld
+    , base >=4.7 && <5
+    , http-types
+    , wai
+    , warp
+  default-language: Haskell2010
