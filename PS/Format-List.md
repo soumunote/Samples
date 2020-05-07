@@ -33,7 +33,7 @@ FileVersionInfo : File:             C:\Program Files\dotnet\dotnet.exe
 ```
 
 Format-List に * を付けると**全列表示する**  
-```
+```PowerShell
 PS > get-command dotnet | Format-List *
 
 
