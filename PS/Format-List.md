@@ -1,7 +1,7 @@
 # Format-List
 リスト表示されるコマンドレットの実行結果を縦表示する。
 **特に、\*を指定すると、全列表示可能である。**  
-```
+```PowerShell
 PS> get-command dotnet
 
 CommandType     Name                                               Version    Source
@@ -10,7 +10,7 @@ Application     dotnet.exe                                         3.100.1... C:
 ```
 
 Format-List を通すと
-```
+```PowerShell
 PS> get-command dotnet | Format-List
 Name            : dotnet.exe
 CommandType     : Application
