@@ -1,6 +1,6 @@
 # Get-Item
 いわゆるDirコマンド。
-```
+```PowerShell
 PS > Get-Item D*
     ディレクトリ: C:\Users\xxx
 Mode                LastWriteTime         Length Name
