@@ -10,3 +10,4 @@
 | [Get-Help](./Get-Help.md "Displays information about PowerShell commands and concepts.") | PowerShell のヘルプを表示する |
 | [Get-Item](./Get-Item.md "Gets the item at the specified location.") | いわゆるDirコマンド |
 | [Get-Member](./Get-Member.md "Gets the properties and methods of objects.") | オブジェクトのプロパティ/メソッドを一覧表示する |
+| [index operator](./IndexOperator.md "Selects objects from indexed collections, such as arrays and hash tables.") | コレクションから一部を抜き出す |
