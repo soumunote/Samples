@@ -1,6 +1,6 @@
 # Get-ChildItem  
 子アイテムを表示する。
-```
+```PowerShell
 PS > Get-ChildItem .\Documents\*
     ディレクトリ: C:\Users\xxxxx\Documents
 
@@ -15,7 +15,7 @@ d-----       2019/06/19      9:48                My Web Sites
 ```
 
 -Recurse を指定すると、再帰的に表示する  
-```
+```PowerShell
 PS C:\Users\maeda> Get-ChildItem -Recurse .\Documents\*
     ディレクトリ: C:\Users\xxxxx\Documents
 Mode                LastWriteTime         Length Name
