@@ -1,6 +1,6 @@
 # Get-Command
 何も指定しないと、全てのコマンドレット等が表示される一方、アプリケーションは表示されない。
-```
+```PowerShell
 PS> Get-Command -h
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
