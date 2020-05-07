@@ -1,4 +1,4 @@
-# Get-Children  
+# Get-ChildItem  
 子アイテムを表示する。
 ```
 PS > Get-ChildItem .\Documents\*
