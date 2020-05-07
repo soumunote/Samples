@@ -9,3 +9,4 @@
 | [Get-Command](./Get-Command.md "Gets all commands.") | which コマンドと同等の機能を有する |
 | [Get-Help](./Get-Help.md "Displays information about PowerShell commands and concepts.") | PowerShell のヘルプを表示する |
 | [Get-Item](./Get-Item.md "Gets the item at the specified location.") | いわゆるDirコマンド |
+| [Get-Member](./Get-Member.md "Gets the properties and methods of objects.") | オブジェクトのプロパティ/メソッドを一覧表示する |
