@@ -19,13 +19,13 @@ RUN  cd /etc/yum.repos.d && \
      
 RUN  yum -y install unixODBC-devel && \
      echo "" >> /etc/odbcinst.ini && \
-     echo "[Oracle${release}.${update}]" && \
-     echo "Description = ODBC for Oracle R${release}.${update}" && \
-     echo "Driver      = /usr/lib/oracle/${release}.${update}/client64/lib/libsqora.so.${release}.1" && \
+     echo "[Oracle${release}.${update}]" >> /etc/odbcinst.ini && \
+     echo "Description = ODBC for Oracle R${release}.${update}" >> /etc/odbcinst.ini && \
+     echo "Driver      = /usr/lib/oracle/${release}.${update}/client64/lib/libsqora.so.${release}.1" >> /etc/odbcinst.ini && \
      echo "" >> ~/.odbc.ini && \
-     echo "[ORCL]" && \
-     echo "Driver = Oracle${release}.${update}" && \
-     echo "ServerName = localhost/orcl"
+     echo "[ORCL]" >> ~/.odbc.ini && \
+     echo "Driver = Oracle${release}.${update}" >> ~/.odbc.ini && \
+     echo "ServerName = localhost/orcl" >> ~/.odbc.ini
 
 #RUN  yum -y remove git && \
 #     yum -y install https://centos7.iuscommunity.org/ius-release.rpm && \
