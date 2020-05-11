@@ -14,9 +14,10 @@ RUN  cd /etc/yum.repos.d && \
      yum install -y yum-utils && \
      yum-config-manager --enable ol7_oracle_instantclient && \
      yum -y install oracle-instantclient${release}.${update}-basic && \
-     yum -y install oracle-instantclient${release}.${update}-odbc 
+     yum -y install oracle-instantclient${release}.${update}-odbc && \
+     yum-config-manager --disable` ol7_oracle_instantclient
      
-RUN  yum -y installunixODBC-devel && \
+RUN  yum -y install unixODBC-devel && \
      echo "" >> /etc/odbcinst.ini && \
      echo "[Oracle${release}.${update}]" && \
      echo "Description = ODBC for Oracle R${release}.${update}" && \
