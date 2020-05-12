@@ -2,9 +2,9 @@ FROM centos:centos7
 
 ARG release=19
 ARG update=6
-ARG appname=odpi-raw-hello-world
+ARG appname=odpic-raw-hello-world
 
-RUN  yum install -y wget 
+RUN  yum install -y wget patch
      
 RUN  cd /etc/yum.repos.d && \
      wget http://yum.oracle.com/public-yum-ol7.repo && \
@@ -21,10 +21,18 @@ RUN  cd /etc/yum.repos.d && \
 
 RUN  rm -rf /var/cache/yum
 
-RUN  curl -sSL https://get.haskellstack.org/ | sh && \
-     cd ~ && \
-     stack new ${appname}
-
 ADD  diff/stack.yaml.diff /tmp
 ADD  diff/package.yaml.diff /tmp
-ADD  app/Main.hs ~/${appname}/app
+ADD  app/Main.hs /tmp
+ADD  app/run.sh  /tmp
+
+RUN  curl -sSL https://get.haskellstack.org/ | sh && \
+     stack setup && \
+     cd ~ && \
+     stack new ${appname} && \
+     cd ~/${appname} && \
+     cp -f /tmp/Main.hs app/ && \
+     cp -f /tmp/run.sh ./ && \
+     chmod +x run.sh && \ 
+     patch stack.yaml < /tmp/stack.yaml.diff && \
+     patch package.yaml < /tmp/package.yaml.diff
