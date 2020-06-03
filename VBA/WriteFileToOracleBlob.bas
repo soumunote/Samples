@@ -23,6 +23,9 @@ Private Sub WriteBlob(szUsername As String, szPassword As String, szService As S
     Dim cn As New ADODB.Connection
     Dim rst As New ADODB.Recordset
     
+    '
+    ' DB接続 Oracle Provider for OLEDB ... MSDAORAはNG
+    '
     providerName = "OraOLEDB.Oracle.1"
     'providerName = "MSDAORA.1"
     cn.ConnectionString = "Provider=" & providerName & ";" _
@@ -33,8 +36,10 @@ Private Sub WriteBlob(szUsername As String, szPassword As String, szService As S
 
     Set rst = New ADODB.Recordset
     rst.Open "select ID, FL from TABLE1 where rownum < 0", cn, adOpenDynamic, adLockOptimistic
+    '新規レコード追加と同時にBLOB書込み
+    
     rst.AddNew
-    rst.Fields("ID").Value = 123
+    rst.Fields("ID").Value = id
     rst.Fields("FL").AppendChunk (ReadFileAsBinary(fileName))
     rst.Update
 
@@ -44,6 +49,15 @@ Private Sub WriteBlob(szUsername As String, szPassword As String, szService As S
 End Sub
 
 
+'********************************************************************************
+'
+' 機　能：指定したファイルを読み込み、Byte()配列で返す
+'
+' 入　力：fileName - ファイル名
+'
+' 注　意：大きなファイルの場合、分割読み込みを検討すべき
+
+'********************************************************************************
 Private Function ReadFileAsBinary(fileName As String) As Byte()
 
     Dim fn As Integer
