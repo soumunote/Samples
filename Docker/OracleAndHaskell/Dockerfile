@@ -1,9 +1,11 @@
 FROM centos:centos7
 
+MAINTAINER soumunote@gmail.com
+
 ARG release=19
 ARG update=6
 
-RUN  yum install -y wget && \
+RUN  yum install -y wget zlib-devel && \
      yum groupinstall -y "Development Tools"
      
 RUN  cd /etc/yum.repos.d && \
@@ -20,9 +22,10 @@ RUN  cd /etc/yum.repos.d && \
 #     yum-config-manager --disable ius
 
 RUN  rm -rf /var/cache/yum
+RUN  curl -sSL https://get.haskellstack.org/ | sh 
 
-RUN  curl -sSL https://get.haskellstack.org/ | sh && \
-     cd ~ && \
-     stack new hello_oracle_and_haskell
+WORKDIR ~
+CMD ["/bin/bash"]
 
-     
+EXPOSE 3000
+EXPOSE 8000
