@@ -1,0 +1,20 @@
+;----- 引数受取 -----
+hostname = param2 ; 引数1つ目(0:全体, 1:マクロ名)
+username = param3 ; 使ってるバージョンでparams[2] ... NGだった
+password = param4
+
+;----- 接続文字列作成 -----
+connectStr = ''
+strconcat connectStr hostname
+strconcat connectStr ' /ssh /auth=password /user="'
+strconcat connectStr username
+strconcat connectStr '" /passwd="'
+strconcat connectStr password
+strconcat connectStr '"'
+
+;----- 接続＆再起動 -----
+connect connectStr
+wait '# '
+sendln 'execute reboot'
+wait '(y/n)'
+sendln 'y'
