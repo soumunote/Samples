@@ -73,3 +73,26 @@
 
 ---
 [5.5 Downloading and Installing Oracle REST Data Services](https://docs.oracle.com/en/database/oracle/application-express/20.1/htmig/downloading-installing-Oracle-REST-data-services.html#GUID-1F0064FB-7F00-4ACE-85BD-E9B2AF73A233)
+
+  ```
+  C:\app\oracle>mkdir ords
+
+  C:\app\oracle>dir
+   ドライブ C のボリューム ラベルがありません。
+   ボリューム シリアル番号は 2E8C-6F51 です
+
+   C:\app\oracle のディレクトリ
+
+  2020/07/13  13:49    <DIR>          .
+  2020/07/13  13:49    <DIR>          ..
+  2020/06/18  10:51    <DIR>          admin
+  2020/06/18  10:59    <DIR>          audit
+  2020/06/18  10:50    <DIR>          cfgtoollogs
+  2020/06/18  10:31    <DIR>          checkpoints
+  2020/06/18  10:31    <DIR>          diag
+  2020/06/18  10:51    <DIR>          oradata
+  2020/07/13  13:49    <DIR>          ords
+  2020/06/18  10:14    <DIR>          product
+                 0 個のファイル                   0 バイト
+                10 個のディレクトリ  21,849,116,672 バイトの空き領域
+  ```
