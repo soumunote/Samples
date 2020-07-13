@@ -38,6 +38,130 @@
    ```
    * Password must contain at least one punctuation character (!"#$%&()``*+,-/:;?_)
 
+## JAVA PATH設定
+
+[1.3.4.2 Advanced Installation Using Command-Line Prompts](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/19.2/aelig/installing-REST-data-services.html#GUID-6F7B4E61-B730-4E73-80B8-F53299123730)
+##
+```
+C:\app\oracle\ords>dir
+ ドライブ C のボリューム ラベルがありません。
+ ボリューム シリアル番号は 2E8C-6F51 です
+
+ C:\app\oracle\ords のディレクトリ
+
+2020/07/13  13:49    <DIR>          .
+2020/07/13  13:49    <DIR>          ..
+2020/07/13  13:49    <DIR>          docs
+2020/07/13  13:49    <DIR>          examples
+2019/07/05  18:26            38,023 index.html
+2020/07/13  13:49    <DIR>          installer
+2019/07/18  16:53        62,454,471 ords.war
+2020/07/13  13:49    <DIR>          params
+               2 個のファイル          62,492,494 バイト
+               6 個のディレクトリ  21,596,942,336 バイトの空き領域
+
+C:\app\oracle\ords>java -jar ords.war install advanced
+このOracle REST Data Servicesインスタンスはまだ構成されていません。
+次のプロンプトを完了してください
+
+構成データを格納する場所を入力してください: config
+データベース・サーバーの名前を入力してください [localhost]:
+データベースのリスニング・ポートを入力してください [1521]:
+データベース・サービス名を指定するには1を、データベースSIDを指定するには2を入力してください [1]:
+データベース・サービス名を入力してください:orcl
+Oracle REST Data Servicesスキーマを確認/インストールする場合は1を、このステップをスキップする場合は2を入力してください [1]:
+ORDS_PUBLIC_USERのデータベース・パスワードを入力してください:
+パスワードの確認:
+Oracle REST Data Servicesスキーマを確認するには、SYS AS SYSDBAが必要です。
+
+Enter the administrator username:sys
+SYS AS SYSDBAのデータベース・パスワードを入力してください:
+パスワードの確認:
+
+情報の取得中.
+Enter the default tablespace for ORDS_METADATA [SYSAUX]:
+Enter the temporary tablespace for ORDS_METADATA [TEMP]:
+Enter the default tablespace for ORDS_PUBLIC_USER [USERS]:
+Enter the temporary tablespace for ORDS_PUBLIC_USER [TEMP]:
+PL/SQLゲートウェイを使用する場合は1を、このステップをスキップする場合は2を入力してください
+Oracle Application Expressを使用しているかmod_plsqlから移行する場合は、1を入力する必要があります [1]:2
+7 13, 2020 6:44:50 午後
+情報: reloaded pools: []
+Oracle REST Data Servicesバージョン19.2.0.r1991647をインストールしています
+... ログ・ファイルがC:\Users\Administrator\ords_install_core_2020-07-13_184450_00611.logに書き込まれました
+... データベース前提条件を確認しました
+... Oracle REST Data Servicesプロキシ・ユーザーを作成しました
+... Oracle REST Data Servicesスキーマを作成しました
+... Oracle REST Data Servicesに権限を付与しました
+... Oracle REST Data Servicesデータベース・オブジェクトを作成しました
+... ログ・ファイルがC:\Users\Administrator\ords_install_datamodel_2020-07-13_184458_00137.logに書き込まれました
+... ログ・ファイルがC:\Users\Administrator\ords_install_apex_2020-07-13_184459_00207.logに書き込まれました
+Oracle REST Data Servicesバージョン19.2.0.r1991647のインストールが完了しました。経過時間: 00:00:09.674
+
+スタンドアロン・モードで起動するには1を、終了するには2を入力してください [1]:
+HTTPを使用する場合は1を、HTTPSを使用する場合は2を入力してください [1]:
+HTTPポートを入力してください [8080]:
+2020-07-13 18:45:44.834:INFO::main: Logging initialized @165420ms to org.eclipse.jetty.util.log.StdErrLog
+7 13, 2020 6:45:44 午後
+情報: HTTP and HTTP/2 cleartext listening on port: 8080
+7 13, 2020 6:45:44 午後
+情報: Disabling document root because the specified folder does not exist: C:\app\oracle\ords\config\ords\standalone\doc_root
+2020-07-13 18:45:45.319:INFO:oejs.Server:main: jetty-9.4.z-SNAPSHOT; built: 2019-05-02T09:46:34.874Z; git: 14f32d50076f2b706f41a33066eb364d8492e199; jvm 1.8.0_201-b09
+2020-07-13 18:45:45.352:INFO:oejs.session:main: DefaultSessionIdManager workerName=node0
+2020-07-13 18:45:45.353:INFO:oejs.session:main: No SessionScavenger set, using defaults
+2020-07-13 18:45:45.354:INFO:oejs.session:main: node0 Scavenging every 600000ms
+7 13, 2020 6:45:45 午後
+情報: Configuration properties for: |apex|pu|
+cache.caching=false
+cache.directory=/tmp/apex/cache
+cache.duration=days
+cache.expiration=7
+cache.maxEntries=500
+cache.monitorInterval=60
+cache.procedureNameList=
+cache.type=lru
+db.hostname=localhost
+db.password=******
+db.port=1521
+db.servicename=orcl
+db.username=ORDS_PUBLIC_USER
+debug.debugger=false
+debug.printDebugToScreen=false
+error.keepErrorMessages=true
+error.maxEntries=50
+jdbc.DriverType=thin
+jdbc.InactivityTimeout=1800
+jdbc.InitialLimit=3
+jdbc.MaxConnectionReuseCount=1000
+jdbc.MaxLimit=10
+jdbc.MaxStatementsLimit=10
+jdbc.MinLimit=1
+jdbc.statementTimeout=900
+log.logging=false
+log.maxEntries=50
+misc.compress=
+misc.defaultPage=apex
+resource.templates.enabled=true
+security.disableDefaultExclusionList=false
+security.maxEntries=2000
+
+7 13, 2020 6:45:45 午後
+警告: *** 構成|apex|pu|のjdbc.MaxLimitで10の値を使用しています。この設定は製品環境には十分なサイズではない可能性があります ***
+7 13, 2020 6:45:45 午後
+警告: *** 構成|apex|pu|のjdbc.InitialLimitで3の値を使用しています。この設定は製品環境には十分なサイズではない可能性があ ります ***
+7 13, 2020 6:45:45 午後
+情報: Oracle REST Data Services initialized
+Oracle REST Data Services version : 19.2.0.r1991647
+Oracle REST Data Services server info: jetty/9.4.z-SNAPSHOT
+
+2020-07-13 18:45:46.286:INFO:oejsh.ContextHandler:main: Started o.e.j.s.ServletContextHandler@53aac487{/ords,null,AVAILABLE}
+2020-07-13 18:45:46.308:INFO:oejs.AbstractConnector:main: Started ServerConnector@766653e6{HTTP/1.1,[http/1.1, h2c]}{0.0.0.0:8080}
+2020-07-13 18:45:46.309:INFO:oejs.Server:main: Started @166895ms
+```
+
+[5.6 Configuring Oracle REST Data Services](https://docs.oracle.com/en/database/oracle/application-express/20.1/htmig/configuring-Oracle-REST-data-services.html#GUID-AD38DE06-A560-4D6D-BD50-6E5A8E513BBF)
+
+
 ---
 [5.4.4 Configuring the APEX_PUBLIC_USER Account](https://docs.oracle.com/en/database/oracle/application-express/20.1/htmig/downloading-installing-Oracle-AE.html#GUID-0619448A-56FB-43E1-A479-C45EC5002E4B)
 
@@ -73,7 +197,13 @@
 
 ---
 [5.5 Downloading and Installing Oracle REST Data Services](https://docs.oracle.com/en/database/oracle/application-express/20.1/htmig/downloading-installing-Oracle-REST-data-services.html#GUID-1F0064FB-7F00-4ACE-85BD-E9B2AF73A233)
+[1.3.4 Downloading, Configuring and Installing Oracle REST Data Services](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/19.2/aelig/installing-REST-data-services.html#GUID-B6661F35-3EE3-4CB3-9379-40D0B8E24635)
 
+## ORDS イメージのコピー
+  なぜか、`ords.version.number.zip`の解凍先フォルダの指定がマニュアルに無い。  
+  探しても。  
+  辛うじて、以下のサイトで言及がある。  
+  [Oracle REST Data Services (ORDS) : Installation on Tomcat](https://oracle-base.com/articles/misc/oracle-rest-data-services-ords-installation-on-tomcat#ords-installation)  
   ```
   C:\app\oracle>mkdir ords
   ■■■■■■■■■■　ここで、Explorer にて unzip とコピー　■■■■■■■■■■
@@ -96,7 +226,10 @@
                  0 個のファイル                   0 バイト
                 10 個のディレクトリ  21,849,116,672 バイトの空き領域
   ```
+##
 
+---
+## 参考
   ```
   C:\app\oracle\ords>C:\app\oracle\product\19.3.0\DB_1\jdk\bin\java.exe -jar ords.war help
   java -jar ords.war <COMMAND> [オプション] [引数]
