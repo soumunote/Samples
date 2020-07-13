@@ -76,7 +76,7 @@
 
   ```
   C:\app\oracle>mkdir ords
-
+  ■■■■■■■■■■　ここで、Explorer にて unzip とコピー　■■■■■■■■■■
   C:\app\oracle>dir
    ドライブ C のボリューム ラベルがありません。
    ボリューム シリアル番号は 2E8C-6F51 です
