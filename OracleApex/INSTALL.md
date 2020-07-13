@@ -96,3 +96,33 @@
                  0 個のファイル                   0 バイト
                 10 個のディレクトリ  21,849,116,672 バイトの空き領域
   ```
+
+  ```
+  C:\app\oracle\ords>C:\app\oracle\product\19.3.0\DB_1\jdk\bin\java.exe -jar ords.war help
+  java -jar ords.war <COMMAND> [オプション] [引数]
+
+    次のコマンドが使用可能です:
+
+                 configdir         web.xml
+                                   config.dirプロパティの値を設定します
+  
+                 generate-access-tokenGenerate an access token that
+                                   can be exchanged for a cookie
+                                   session
+  
+                 help              このプログラムまたはコマンドの使用方法を説明します
+  
+                 http-wallet       Generate Oracle Auto-Login
+                                   wallet to hold HTTP Basic or
+                                   OAuth Resource Owner
+                                   Credentials
+  
+                 install           Oracle REST Data
+                                   Servicesをインストールします
+  
+                 map-url           URLパターンを、指定したデータベース接続にマップします
+  
+                 oam-config        Oracle WebLogicでOracle Access
+  
+  String index out of range: -1
+  ```
