@@ -59,12 +59,33 @@
   SQL> alter user APEX_PUBLIC_USER identified by <パスワード>;
   ユーザーが変更されました。
   ```
+
+[5.4.5 Configuring RESTful Services](https://docs.oracle.com/en/database/oracle/application-express/20.1/htmig/downloading-installing-Oracle-AE.html#GUID-93638EC4-5278-421B-9C19-BB68F9B31C40)
+
+```
+C:\downloads\apex_20.1\apex>sqlplus /nolog
+SQL*Plus: Release 19.0.0.0.0 - Production on 火 7月 14 15:34:19 2020
+Version 19.3.0.0.0
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+SQL> conn sys/Kbc12345 as sysdba
+接続されました。
+SQL> @apex_rest_config.sql
+
+PL/SQLプロシージャが正常に完了しました。
+PL/SQLプロシージャが正常に完了しました。
+Enter a password for the APEX_LISTENER user              []
+Enter a password for the APEX_REST_PUBLIC_USER user              []
+```
    
    
    
    
-   
-   
+   ---
+   ---
+   ---
+   ---
+   ---
    
    
    
