@@ -78,6 +78,153 @@ Enter a password for the APEX_LISTENER user              []
 Enter a password for the APEX_REST_PUBLIC_USER user              []
 ```
    
+## ORDS イメージのコピー
+  なぜか、`ords.version.number.zip`の解凍先フォルダの指定がマニュアルに無い。  
+  探しても。  
+  辛うじて、以下のサイトで言及がある。  
+  [Oracle REST Data Services (ORDS) : Installation on Tomcat](https://oracle-base.com/articles/misc/oracle-rest-data-services-ords-installation-on-tomcat#ords-installation)  
+  ```
+  C:\app\oracle>mkdir ords
+  ■■■■■■■■■■　ここで、Explorer にて unzip とコピー　■■■■■■■■■■
+  C:\app\oracle>dir
+   ドライブ C のボリューム ラベルがありません。
+   ボリューム シリアル番号は 2E8C-6F51 です
+
+   C:\app\oracle のディレクトリ
+
+  2020/07/13  13:49    <DIR>          .
+  2020/07/13  13:49    <DIR>          ..
+  2020/06/18  10:51    <DIR>          admin
+  2020/06/18  10:59    <DIR>          audit
+  2020/06/18  10:50    <DIR>          cfgtoollogs
+  2020/06/18  10:31    <DIR>          checkpoints
+  2020/06/18  10:31    <DIR>          diag
+  2020/06/18  10:51    <DIR>          oradata
+  2020/07/13  13:49    <DIR>          ords
+  2020/06/18  10:14    <DIR>          product
+                 0 個のファイル                   0 バイト
+                10 個のディレクトリ  21,849,116,672 バイトの空き領域
+  ```
+
+ C:\app\oracle\ords>sqlplus /nolog
+
+SQL*Plus: Release 19.0.0.0.0 - Production on 火 7月 14 16:53:08 2020
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+SQL> conn sys/Kbc12345 as sysdba
+接続されました。
+
+SQL> @installer\ords_installer_privileges.sql sys  
+   
+   C:\app\oracle\ords>sqlplus /nolog
+
+SQL*Plus: Release 19.0.0.0.0 - Production on 火 7月 14 16:53:08 2020
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+SQL> conn sys/Kbc12345 as sysdba
+接続されました。
+SQL> @installer\ords_installer_privileges.sql
+1に値を入力してください:
+SQL> @installer\ords_installer_privileges.sql sys
+
+SQL> exit
+Oracle Database 19c Standard Edition 2 Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0との接続が切断されました。
+
+C:\app\oracle\ords>java -jar ords.war install advanced
+このOracle REST Data Servicesインスタンスはまだ構成されていません。
+次のプロンプトを完了してください
+
+
+構成データを格納する場所を入力してください: C:\app\oracle\ords\install
+使用するデータベース接続タイプを指定します。
+番号を入力してください: [1] 基本  [2] TNS  [3] カスタムURL [1]:1
+データベース・サーバーの名前を入力してください [localhost]:
+データベースのリスニング・ポートを入力してください [1521]:
+データベース・サービス名を指定するには1を、データベースSIDを指定するには2を入力してください [1]:
+データベース・サービス名を入力してください:orcl
+Oracle REST Data Servicesスキーマを確認/インストールする場合は1を、このステップをスキップする場合は2を入力してください [1]:
+ORDS_PUBLIC_USERのデータベース・パスワードを入力してください:
+パスワードの確認:
+管理者権限でログインし、Oracle REST Data Servicesスキーマを確認する必要があります。
+
+管理者ユーザー名を入力してください:sys
+SYS AS SYSDBAのデータベース・パスワードを入力してください:
+パスワードの確認:
+データベース・ユーザー: SYS AS SYSDBA URL: jdbc:oracle:thin:@//localhost:1521/orclに接続しています
+
+情報の取得中.
+ORDS_METADATAのデフォルト表領域を入力してください [SYSAUX]:
+ORDS_METADATAの一時表領域を入力してください [TEMP]:
+ORDS_PUBLIC_USERのデフォルト表領域を入力してください [USERS]:
+ORDS_PUBLIC_USERの一時表領域を入力してください [TEMP]:
+PL/SQLゲートウェイを使用する場合は1を、このステップをスキップする場合は2を入力してください
+Oracle Application Expressを使用しているかmod_plsqlから移行する場合は、1を入力する必要があります [1]:
+Oracle Application Expressを使用しているかmod_plsqlから移行する場合は、1を入力する必要があります [1]:
+PL/SQLゲートウェイ・データベースのユーザー名を入力してください [APEX_PUBLIC_USER]:APEX_PUBLIC_USERのデータベース・パスワードを入力してください:
+C:\app\oracle\ords>java -jar ords.war install advanced
+使用するデータベース接続タイプを指定します。
+番号を入力してください: [1] 基本  [2] TNS  [3] カスタムURL [1]:
+データベース・サーバーの名前を入力してください [localhost]:
+データベースのリスニング・ポートを入力してください [1521]:
+データベース・サービス名を指定するには1を、データベースSIDを指定するには2を入力してください [1]:
+データベース・サービス名を入力してください:orcl
+Oracle REST Data Servicesスキーマを確認/インストールする場合は1を、このステップをスキップする場合は2を入力してください [1]:
+ORDS_PUBLIC_USERのデータベース・パスワードを入力してください:
+パスワードの確認:
+管理者権限でログインし、Oracle REST Data Servicesスキーマを確認する必要があります。
+
+管理者ユーザー名を入力してください:sys
+SYS AS SYSDBAのデータベース・パスワードを入力してください:
+パスワードの確認:
+データベース・ユーザー: SYS AS SYSDBA URL: jdbc:oracle:thin:@//localhost:1521/orclに接続しています
+
+情報の取得中.
+ORDS_METADATAのデフォルト表領域を入力してください [SYSAUX]:
+ORDS_METADATAの一時表領域を入力してください [TEMP]:
+ORDS_PUBLIC_USERのデフォルト表領域を入力してください [USERS]:
+ORDS_PUBLIC_USERの一時表領域を入力してください [TEMP]:
+PL/SQLゲートウェイを使用する場合は1を、このステップをスキップする場合は2を入力してください
+Oracle Application Expressを使用しているかmod_plsqlから移行する場合は、1を入力する必要があります [1]:1
+PL/SQLゲートウェイ・データベースのユーザー名を入力してください [APEX_PUBLIC_USER]:
+APEX_PUBLIC_USERのデータベース・パスワードを入力してください:
+パスワードの確認:
+Application Express RESTfulサービスのデータベース・ユーザー(APEX_LISTENER, APEX_REST_PUBLIC_USER)にパスワードを使用する には1を、このステップをスキップするには2を入力してください [1]:
+APEX_LISTENERのデータベース・パスワードを入力してください:
+パスワードの確認:
+APEX_REST_PUBLIC_USERのデータベース・パスワードを入力してください:
+パスワードの確認:
+番号を入力して、有効化する機能を選択してください:
+   [1] SQL Developer Web (すべての機能を有効化)
+   [2] REST対応SQL
+   [3] データベースAPI
+   [4] REST対応SQLとデータベースAPI
+   [5] なし
+選択 [1]:1   
+2020-07-14T07:59:07.804Z INFO        reloaded pools: []
+Oracle REST Data Servicesバージョン20.2.0.r1781804をインストールしています
+... ログ・ファイルがC:\Users\Administrator\ords_install_core_2020-07-14_165907_00904.logに書き込まれました
+... データベース前提条件を確認しました
+... Oracle REST Data Servicesプロキシ・ユーザーを作成しました
+... Oracle REST Data Servicesスキーマを作成しました
+... Oracle REST Data Servicesに権限を付与しました
+... Oracle REST Data Servicesデータベース・オブジェクトを作成しました
+... ログ・ファイルがC:\Users\Administrator\ords_install_datamodel_2020-07-14_165920_00403.logに書き込まれました
+... ログ・ファイルがC:\Users\Administrator\ords_install_apex_2020-07-14_165921_00234.logに書き込まれました
+Oracle REST Data Servicesバージョン20.2.0.r1781804のインストールが完了しました。経過時間: 00:00:14.146
+
+スタンドアロン・モードで起動するには1を、終了するには2を入力してください [1]:1
+APEX静的リソースの場所を入力します:C:\app\oracle\ords\apex\images   
+   
+   
+   
+   
+   
+   
    
    
    
@@ -286,34 +433,6 @@ Oracle REST Data Services server info: jetty/9.4.z-SNAPSHOT
 [5.5 Downloading and Installing Oracle REST Data Services](https://docs.oracle.com/en/database/oracle/application-express/20.1/htmig/downloading-installing-Oracle-REST-data-services.html#GUID-1F0064FB-7F00-4ACE-85BD-E9B2AF73A233)
 [1.3.4 Downloading, Configuring and Installing Oracle REST Data Services](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/19.2/aelig/installing-REST-data-services.html#GUID-B6661F35-3EE3-4CB3-9379-40D0B8E24635)
 
-## ORDS イメージのコピー
-  なぜか、`ords.version.number.zip`の解凍先フォルダの指定がマニュアルに無い。  
-  探しても。  
-  辛うじて、以下のサイトで言及がある。  
-  [Oracle REST Data Services (ORDS) : Installation on Tomcat](https://oracle-base.com/articles/misc/oracle-rest-data-services-ords-installation-on-tomcat#ords-installation)  
-  ```
-  C:\app\oracle>mkdir ords
-  ■■■■■■■■■■　ここで、Explorer にて unzip とコピー　■■■■■■■■■■
-  C:\app\oracle>dir
-   ドライブ C のボリューム ラベルがありません。
-   ボリューム シリアル番号は 2E8C-6F51 です
-
-   C:\app\oracle のディレクトリ
-
-  2020/07/13  13:49    <DIR>          .
-  2020/07/13  13:49    <DIR>          ..
-  2020/06/18  10:51    <DIR>          admin
-  2020/06/18  10:59    <DIR>          audit
-  2020/06/18  10:50    <DIR>          cfgtoollogs
-  2020/06/18  10:31    <DIR>          checkpoints
-  2020/06/18  10:31    <DIR>          diag
-  2020/06/18  10:51    <DIR>          oradata
-  2020/07/13  13:49    <DIR>          ords
-  2020/06/18  10:14    <DIR>          product
-                 0 個のファイル                   0 バイト
-                10 個のディレクトリ  21,849,116,672 バイトの空き領域
-  ```
-##
 
 ---
 ## 参考
