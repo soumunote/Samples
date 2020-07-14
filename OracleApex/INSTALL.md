@@ -22,29 +22,32 @@
 
 ### 2. SQL*Plus にてインストールの実行
 手順 1 で解凍したしたフォルダをカレントにして、SQL*Plus を起動し、`apexins.sql` スクリプトを実行する。
-<pre>
-<font color="red">C:\downloads\apex_20.1\apex</font>><font color="green">sqlplus /nolog</font>
+
+```
+C:\downloads\apex_20.1\apex>sqlplus /nolog
 SQL*Plus: Release 19.0.0.0.0 - Production on 月 7月 13 11:49:58 2020
 Version 19.3.0.0.0
 Copyright (c) 1982, 2019, Oracle.  All rights reserved.
 SQL> conn sys as sysdba
-パスワードを入力してください:<font color="green"><パスワード></font>
+パスワードを入力してください:<パスワード>
 接続されました。
-SQL> <font color="green">@apexins.sql SYSAUX SYSAUX TEMP /i/</font>
-</pre>
+SQL> @apexins.sql SYSAUX SYSAUX TEMP /i/
+```
 
 ### 3. Instance Administrator パスワードの変更(作成)  
 手順 1 で解凍したしたフォルダをカレントにして、SQL*Plus を起動し、`apxchpwd.sql` スクリプトを実行する。  
-これで「ADMIN」ユーザが作られるらしい。
-<pre>
-<font color="red">C:\downloads\apex_20.1\apex</font>><font color="green">sqlplus /nolog</font>
+これで「ADMIN」ユーザが作られるらしい。  
+[Application Express Installation Guide / 5.4.2.3 Running apxchpwd.sql](https://docs.oracle.com/en/database/oracle/application-express/20.1/htmig/downloading-installing-Oracle-AE.html#GUID-2DA3D4C1-EFB0-4FAF-841B-E90D58EF11E0)
+
+```
+C:\downloads\apex_20.1\apex>sqlplus /nolog
 SQL*Plus: Release 19.0.0.0.0 - Production on 火 7月 14 18:39:21 2020
 Version 19.3.0.0.0
 Copyright (c) 1982, 2019, Oracle.  All rights reserved.
 SQL> conn sys as sysdba
 パスワードを入力してください:
 接続されました。
-SQL> <font color="green">@apxchpwd.sql</font>
+SQL> @apxchpwd.sql
 ...set_appun.sql
 ================================================================================
 This script can be used to change the password of an Application Express
@@ -54,10 +57,64 @@ created.
 Enter the administrator's username [ADMIN]
 User "ADMIN" does not yet exist and will be created.
 Enter ADMIN's email [ADMIN]
-Enter ADMIN's password []<font color="green"><パスワード(#付きでないとエラー)></font>
+Enter ADMIN's password []<font color="green"><パスワード(#付)></font>
 Created instance administrator ADMIN.
-</pre>
+```
 
+### 4. APEX_PUBLIC_USER アカウントの構成
+ここまでの時点で、`APEX_PUBLIC_USER`アカウントはロックされており、パスワードもランダムなので、  
+SQL直起動で、ロック解除とパスワード設定を行う。  
+[Application Express Installation Guide / 5.4.4.1 About the APEX_PUBLIC_USER Account](https://docs.oracle.com/en/database/oracle/application-express/20.1/htmig/downloading-installing-Oracle-AE.html#GUID-382AFED6-6542-4E6E-9EF7-6DB1DC588E98)
+
+```
+C:\downloads\apex_20.1\apex>sqlplus /nolog
+SQL*Plus: Release 19.0.0.0.0 - Production on 火 7月 14 18:58:08 2020
+Version 19.3.0.0.0
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+SQL> conn sys as sysdba
+パスワードを入力してください:
+接続されました。
+SQL> alter user APEX_PUBLIC_USER account unlock;
+ユーザーが変更されました。
+
+SQL> alter user APEX_PUBLIC_USER identified by <パスワード>;
+ユーザーが変更されました。
+```
+
+### 5. RESTful Services の構成
+`apex_rest_config.sql`を実行する。  
+これで何が行われるかは、以下を参照。  
+APEX_LISTENER, APEX_REST_PUBLIC_USER が作成されることは間違いない。  
+[Application Express Installation Guide / 5.4.5 Configuring RESTful Services](https://docs.oracle.com/en/database/oracle/application-express/20.1/htmig/downloading-installing-Oracle-AE.html#GUID-93638EC4-5278-421B-9C19-BB68F9B31C40)
+
+```
+C:\downloads\apex_20.1\apex>sqlplus /nolog
+
+SQL*Plus: Release 19.0.0.0.0 - Production on 火 7月 14 19:21:39 2020
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+SQL> conn sys as sysdba
+パスワードを入力してください:
+接続されました。
+SQL> @apex_rest_config.sql
+PL/SQLプロシージャが正常に完了しました。
+PL/SQLプロシージャが正常に完了しました。
+Enter a password for the APEX_LISTENER user [] <パスワード>
+Enter a password for the APEX_REST_PUBLIC_USER user [] <パスワード>
+...set_appun.sql
+...setting session environment
+PL/SQLプロシージャが正常に完了しました。
+プロシージャが作成されました。
+セッションが変更されました。
+コールが完了しました。
+コールが完了しました。
+セッションが変更されました。
+プロシージャが削除されました。
+...create APEX_LISTENER and APEX_REST_PUBLIC_USER users
+PL/SQLプロシージャが正常に完了しました。
+```
 
 ## 作成されるユーザ
 |スキーマ|作成されるステップ|役割|
@@ -66,6 +123,9 @@ Created instance administrator ADMIN.
 |APEX_PUBLIC_USER|apexins.sql||
 |FLOWS_FILES|apexins.sql||
 |APEX_INSTANCE_ADMIN_USER|apexins.sql||
+|APEX_LISTENER|apex_rest_config.sql||
+|APEX_REST_PUBLIC_USER|apex_rest_config.sql||
+
 
 
 
