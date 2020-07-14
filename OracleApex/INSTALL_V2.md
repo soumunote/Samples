@@ -39,6 +39,40 @@
    Enter ADMIN's password []<パスワード(#を使う)>
    ```
    * Password must contain at least one punctuation character (!"#$%&()``*+,-/:;?_)
+   
+[5.4.4 Configuring the APEX_PUBLIC_USER Account](https://docs.oracle.com/en/database/oracle/application-express/20.1/htmig/downloading-installing-Oracle-AE.html#GUID-0619448A-56FB-43E1-A479-C45EC5002E4B)
+
+## APEX_PUBLIC_USER アカウントの構成
+  ```
+  C:\downloads\apex_20.1\apex>sqlplus /nolog
+  SQL*Plus: Release 19.0.0.0.0 - Production on 月 7月 13 12:41:51 2020
+  Version 19.3.0.0.0
+  Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+  SQL> conn sys as sysdba
+  パスワードを入力してください:<パスワード>
+  接続されました。
+  
+  SQL> alter user APEX_PUBLIC_USER account unlock;
+  ユーザーが変更されました。
+
+  SQL> alter user APEX_PUBLIC_USER identified by <パスワード>;
+  ユーザーが変更されました。
+  ```
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 
 [1.3.4.1 ORDS Installer Privileges Script](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/19.2/aelig/installing-REST-data-services.html#GUID-C613F122-E849-4EDC-8169-04140EDCFB64)
 
