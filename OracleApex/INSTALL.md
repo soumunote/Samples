@@ -1,4 +1,77 @@
 # Oracle Apex 20.1 Install
+## インストールの前に
+### 前提条件
+|対象|バージョン|
+|--|--|
+|OS|Windows Server 2019|
+|Database|Oracle Database 19c R 19.3.0|
+|APEX|Oracle APEX 20.1.0.00.13|
+|REST|Oracle REST Data Services 20.2.0.r1781804|
+### ダウンロードするものなど
+1. Oracle Database はダウンロード後インストール済とする
+2. データベースは、カスタムにて APEX 無しで作成した
+3. まぁ、上の全部と、以下の設定も事前に行う。  
+   `%PATH%;C:\app\oracle\product\19.3\dbhome_1\jdk\bin`
+4. APEX, ORDS に関しては、`C:\Downloads`にダウンロードしておく
+
+## インストール
+### 1. APEX インストールイメージの解凍
+`C:\Downloads\apex_20.1\apex` の配下に解凍される。  
+上記フォルダが APEX インストール作業のベースディレクトリとなる。  
+[Application Express Installation Guide / 5.4.1 Installing Application Express](https://docs.oracle.com/en/database/oracle/application-express/20.1/htmig/downloading-installing-Oracle-AE.html#GUID-7E432C6D-CECC-4977-B183-3C654380F7BF)
+
+### 2. SQL*Plus にてインストールの実行
+手順 1 で解凍したしたフォルダをカレントにして、SQL*Plus を起動し、`apexins.sql` スクリプトを実行する。
+<pre>
+<font color="red">C:\downloads\apex_20.1\apex</font>><font color="green">sqlplus /nolog</font>
+SQL*Plus: Release 19.0.0.0.0 - Production on 月 7月 13 11:49:58 2020
+Version 19.3.0.0.0
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+SQL> conn sys as sysdba
+パスワードを入力してください:<font color="green"><パスワード></font>
+接続されました。
+SQL> <font color="green">@apexins.sql SYSAUX SYSAUX TEMP /i/</font>
+</pre>
+
+### 3. Instance Administrator パスワードの変更(作成)  
+手順 1 で解凍したしたフォルダをカレントにして、SQL*Plus を起動し、`apxchpwd.sql` スクリプトを実行する。  
+これで「ADMIN」ユーザが作られるらしい。
+<pre>
+<font color="red">C:\downloads\apex_20.1\apex</font>><font color="green">sqlplus /nolog</font>
+SQL*Plus: Release 19.0.0.0.0 - Production on 火 7月 14 18:39:21 2020
+Version 19.3.0.0.0
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+SQL> conn sys as sysdba
+パスワードを入力してください:
+接続されました。
+SQL> <font color="green">@apxchpwd.sql</font>
+...set_appun.sql
+================================================================================
+This script can be used to change the password of an Application Express
+instance administrator. If the user does not yet exist, a user record will be
+created.
+================================================================================
+Enter the administrator's username [ADMIN]
+User "ADMIN" does not yet exist and will be created.
+Enter ADMIN's email [ADMIN]
+Enter ADMIN's password []<font color="green"><パスワード(#付きでないとエラー)></font>
+Created instance administrator ADMIN.
+</pre>
+
+
+## 作成されるユーザ
+|スキーマ|作成されるステップ|役割|
+|--|--|--|
+|APEX_200100|apexins.sql||
+|APEX_PUBLIC_USER|apexins.sql||
+|FLOWS_FILES|apexins.sql||
+|APEX_INSTANCE_ADMIN_USER|apexins.sql||
+
+
+
+
+
+
 
 ---
 [5.4.1 Installing Application Express](https://docs.oracle.com/en/database/oracle/application-express/20.1/htmig/downloading-installing-Oracle-AE.html#GUID-7E432C6D-CECC-4977-B183-3C654380F7BF)
