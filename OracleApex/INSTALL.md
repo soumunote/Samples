@@ -4,7 +4,7 @@
 |対象|バージョン|ダウンロード→解凍先|
 |--|--|--|
 |OS|Windows Server 2019||
-|Database|Oracle Database 19c R 19.3.0||
+|Database|Oracle Database 19c R 19.3.0|C:\app\oracle\product\19.3\dbhome_1|
 |APEX|Oracle APEX 20.1.0.00.13|C:\downloads\apex_20.1\apex|
 |REST|Oracle REST Data Services 20.2.0.r1781804|C:\downloads\ords-20.2.0.178.1804(後で移動)|
 ### ダウンロードするものなど
