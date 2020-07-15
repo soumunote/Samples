@@ -1,12 +1,12 @@
 # Oracle Apex 20.1 Install
 ## インストールの前に
 ### 前提条件
-|対象|バージョン|
-|--|--|
-|OS|Windows Server 2019|
-|Database|Oracle Database 19c R 19.3.0|
-|APEX|Oracle APEX 20.1.0.00.13|
-|REST|Oracle REST Data Services 20.2.0.r1781804|
+|対象|バージョン|ダウンロード→解凍先|
+|--|--|--|
+|OS|Windows Server 2019||
+|Database|Oracle Database 19c R 19.3.0||
+|APEX|Oracle APEX 20.1.0.00.13|C:\downloads\apex_20.1\apex|
+|REST|Oracle REST Data Services 20.2.0.r1781804|C:\downloads\ords-20.2.0.178.1804(後で移動)|
 ### ダウンロードするものなど
 1. Oracle Database はダウンロード後インストール済とする
 2. データベースは、カスタムにて APEX 無しで作成した
@@ -228,7 +228,7 @@ APEX_REST_PUBLIC_USERのデータベース・パスワードを入力してく�
 
   SQL> @load_ja.sql
   ```
-
+---
 ## 作成されるユーザ
 |スキーマ|作成されるステップ|役割|
 |--|--|--|
