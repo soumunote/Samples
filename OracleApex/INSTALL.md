@@ -204,6 +204,31 @@ APEX_REST_PUBLIC_USERのデータベース・パスワードを入力してく�
 - HTTPを使用する場合は1を、HTTPSを使用する場合は2を入力してください [1]:`(既定値)`  
 - HTTPポートを入力してください [8080]:`(既定値)`  
 
+### 9.日本語化
+- カレントフォルダを`C:\downloads\apex_20.1\apex\builder`に変更  
+- 環境変数 `set NLS_LANG=American_America.AL32UTF8` 
+- sys ユーザにて  
+  `alter session set current_schema=APEX_200100;`  
+  `@load_ja.sql`
+
+[5.11.2 Installing a Translated Version of Oracle Application Express](https://docs.oracle.com/en/database/oracle/application-express/20.1/htmig/installing-translated-versions-of-Oracle-AE.html#GUID-614D03ED-5AEA-48DB-875C-210DA742F8F5)
+
+  ```
+  C:\downloads\apex_20.1\apex\builder>cd \downloads\apex_20.1\apex\builder\ja
+  C:\downloads\apex_20.1\apex\builder\ja>set NLS_LANG=American_America.AL32UTF8
+  C:\downloads\apex_20.1\apex\builder\ja>sqlplus /nolog
+  SQL*Plus: Release 19.0.0.0.0 - Production on Wed Jul 15 17:17:03 2020
+  Version 19.3.0.0.0
+  Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+  SQL> conn sys as sysdba
+  Enter password:
+  Connected.
+  SQL> alter session set current_schema=APEX_200100;
+  Session altered.
+
+  SQL> @load_ja.sql
+  ```
+
 ## 作成されるユーザ
 |スキーマ|作成されるステップ|役割|
 |--|--|--|
