@@ -1,4 +1,4 @@
-# Oracle Apex 20.1 Install
+# Oracle Apex 20.1 on Windows インストール手順
 ## インストールの前に
 ### 前提条件
 |対象|バージョン|ダウンロード→解凍先|
