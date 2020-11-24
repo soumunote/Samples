@@ -1,10 +1,13 @@
 # Perlのワンライナーと正規表現
 ## サンプル
 -e のみの指定
-```
-$ perl -e '"山田 太郎 12番" =~ /((?<lastName>\S+)\s+|)(?<firstName>\S+)\s(?<no>\d+)\S+/;print "$+{firstName}\n"'
+<code>
+<pre>
+$ perl -e '"山田 太郎 12番" =~ /((<font color="red">?<lastName></font>\S+)\s+|)(?<firstName>\S+)\s(?<no>\d+)\S+/;print "$+{firstName}\n"'
 太郎
-```
+</pre>
+</code>
+
 -nle を指定し、標準入力から値を取るパターン
 ```
 $ echo "太郎 12番" | perl -ne '/((?<lastName>\S+)\s+|)(?<firstName>\S+)\s(?<no>\d+)\S+/;print "$+{firstName}\n"'
