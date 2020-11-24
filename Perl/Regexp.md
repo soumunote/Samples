@@ -3,7 +3,7 @@
 -e のみの指定
 <code>
 <pre>
-$ perl -e '"山田 太郎 12番" =~ /((<font color="red">?<lastName></font>\S+)\s+|)(?<firstName>\S+)\s(?<no>\d+)\S+/;print "$+{firstName}\n"'
+$ perl -e '"山田 太郎 12番" =~ /((<span style="color:red">?<lastName></span>\S+)\s+|)(?<firstName>\S+)\s(?<no>\d+)\S+/;print "$+{firstName}\n"'
 太郎
 </pre>
 </code>
