@@ -7,8 +7,9 @@ $ perl -e '"山田 太郎 12番" =~ /((?<lastName>\S+)\s+|)(?<firstName>\S+)\s(?
 ```
 -nle を指定し、標準入力から値を取るパターン
 ```Perl
-$ echo "太郎 12番" | perl -ne '/((?<lastName>\S+)\s+|)(?<firstName>\S+)\s(?<no>\d+)\S+/;print "$+{firstName}\n"'
+$ echo -e "太郎 12番\n星 飛雄馬 1番" | perl -ne '/((?<lastName>\S+)\s+|)(?<firstName>\S+)\s(?<no>\d+)\S+/;print "$+{firstName}\n"'
 太郎
+飛雄馬
 ```
 
 ## ワンライナー
