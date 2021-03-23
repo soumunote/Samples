@@ -1,4 +1,4 @@
-```
+```PowerShell
 PS C:\> set-vmprocessor -vmname sol-kanrisv -ExposeVirtualizationExtensions $true
 PS C:\> get-vmprocessor -vmname sol-kanrisv | Format-List
 
