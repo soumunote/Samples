@@ -51,3 +51,12 @@ node を利用するので、以下のインストール作業が必要
 ### 起動方法
 1. ソースフォルダ上で、`npx babel --watch src --out-dir . --presets react-app/prod` を起動しておく
 2. これまで同様 `index.html` を開く
+
+---
+
+## [04-bundle-by-webpack](04-bundle-by-webpack)
+
+### 概要
+
+### インストール
+1. `npm -y init`
