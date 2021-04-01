@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add React in Minute</title>
+  </head>
+  <body>
+    <h2>Add React in One Minute</h2>
+    <p>This page demonstrate using React with no build tooling.</p>
+    <p>React is loaded as a script tag.</p>
+
+    <!-- 👇 ここに React Component をレンダリングする -->
+    <div id="like_button_container"></div>
+
+    <!-- Load React. -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <!-- Load 自作コンポーネント -->
+    <script src="like_button.js"></script>
+
+  </body>
+</html>

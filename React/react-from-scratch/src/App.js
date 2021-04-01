@@ -4,6 +4,8 @@ import Clock from "./Clock";
 import Toggle from "./Toggle"; 
 import Greeting from "./Greeting";
 import TemperratureCalculator from "./TemperatureCalculator";
+import { Alert, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   constructor(props) {
@@ -31,6 +33,13 @@ class App extends Component {
                   onClick={this.state.isLoggedIn ? this.handleLogin : this.handleLogout}
         />
         <TemperratureCalculator/>
+
+        <Alert dismissible variant="danger">
+          <Alert.Heading>On snap! You got an error!</Alert.Heading>
+          <p>
+            Change this and that and try again.
+          </p>
+        </Alert>
       </div>
     );
   }
