@@ -54,7 +54,7 @@ node を利用するので、以下のインストール作業が必要
 
 ---
 
-## [04-bundle-by-webpack](04-bundle-by-webpack)
+## [04-webpack](04-webpack)
 
 ### 概要
 一旦、react から離れて、純粋な webpack の機能の入り口を調査  
@@ -67,8 +67,23 @@ node を利用するので、以下のインストール作業が必要
 
 ### 起動方法
 1. ソースフォルダ上で、`npx webpack --config webpack.config.js --watch` を起動しておく
-2. これまで同様 `index.html` を開く
+2. `index.html` と ``
+3. `dist/index.html` を開く
 
 ### 参照
 - [webpack Getting Started](https://webpack.js.org/guides/getting-started/)
+- [webpack Command Line Interface](https://webpack.js.org/api/cli/)
 
+---
+
+## [webpack-babel-loader](webpack-babel-loader)
+
+### 概要
+
+### インストール
+
+### 起動方法
+
+### 参照
+- [webpack Loaders](https://webpack.js.org/loaders/)
+- [webpack babel-loader](https://webpack.js.org/loaders/babel-loader/)
