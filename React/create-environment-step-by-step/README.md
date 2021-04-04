@@ -57,6 +57,18 @@ node を利用するので、以下のインストール作業が必要
 ## [04-bundle-by-webpack](04-bundle-by-webpack)
 
 ### 概要
+一旦、react から離れて、純粋な webpack の機能の入り口を調査  
+参照サイトの webpack の起動方法にちょっと加え、`--watch` を使用する
 
 ### インストール
 1. `npm -y init`
+2. `npm install --save-dev webpack webpack-cli`
+3. `npm install --save lodash`
+
+### 起動方法
+1. ソースフォルダ上で、`npx webpack --config webpack.config.js --watch` を起動しておく
+2. これまで同様 `index.html` を開く
+
+### 参照
+- [webpack Getting Started](https://webpack.js.org/guides/getting-started/)
+
