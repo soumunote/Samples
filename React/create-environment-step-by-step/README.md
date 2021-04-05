@@ -75,9 +75,11 @@ node を利用するので、以下のインストール作業が必要
 
 ---
 
-## [webpack-babel-loader](webpack-babel-loader)
+## [05-webpack-babel-loader](05-webpack-babel-loader)
 
 ### 概要
+Webpack Loader を使用して、バンドル前の変換を行う。  
+[様々な種類のLoader](https://webpack.js.org/loaders/)が準備されている。
 
 ### インストール
 1. `npm init -y`
