@@ -49,7 +49,7 @@ node を利用するので、以下のインストール作業が必要
 2. `npm install babel-cli@6 babel-preset-react-app@3`
 
 ### 起動方法
-1. ソースフォルダ上で、`npx babel --watch src --out-dir . --presets react-app/prod` を起動しておく
+1. ソースフォルダ上で、`npx babel --watch src --out-dir ./dist --presets react-app/prod` を起動しておく
 2. これまで同様 `index.html` を開く
 
 ---
@@ -67,8 +67,7 @@ node を利用するので、以下のインストール作業が必要
 
 ### 起動方法
 1. ソースフォルダ上で、`npx webpack --config webpack.config.js --watch` を起動しておく
-2. `index.html` と ``
-3. `dist/index.html` を開く
+2. `index.html` を開く
 
 ### 参照
 - [webpack Getting Started](https://webpack.js.org/guides/getting-started/)
@@ -81,8 +80,12 @@ node を利用するので、以下のインストール作業が必要
 ### 概要
 
 ### インストール
-
+1. `npm init -y`
+2. `npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli`
+3. `npm install --save react react-dom`
 ### 起動方法
+1. ソースフォルダ上で、`npx webpack --config webpack.config.js --watch` を起動しておく
+2. `index.html` を開く
 
 ### 参照
 - [webpack Loaders](https://webpack.js.org/loaders/)
