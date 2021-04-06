@@ -85,6 +85,7 @@ Webpack Loader を使用して、バンドル前の変換を行う。
 1. `npm init -y`
 2. `npm install --save-dev babel-loader @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli`
 3. `npm install --save react react-dom`
+
 ### 起動方法
 1. ソースフォルダ上で、`npx webpack --config webpack.config.js --watch` を起動しておく
 2. `index.html` を開く
@@ -92,3 +93,40 @@ Webpack Loader を使用して、バンドル前の変換を行う。
 ### 参照
 - [webpack Loaders](https://webpack.js.org/loaders/)
 - [webpack babel-loader](https://webpack.js.org/loaders/babel-loader/)
+
+---
+
+## [06-simple-nextjs](06-simple-nextjs)
+
+### 概要
+
+### インストール
+1. `npm init -y`
+2. `npm install next react react-dom`
+
+### 起動方法
+1. ソースフォルダ上で、`npm run dev` を起動しておく  
+   (package.json で dev を定義)
+2. `http://localhost:3000/` を開く
+
+### 参照
+- [Next.js tutorial:manual project setup - Video Docs(Pt.1)](https://kananrahimov.com/post/next-js-tutorial-manual-project-setup-video-docs-part-1/)
+
+---
+
+## [07-next-bootstrap](07-next-bootstrap)
+
+### 概要
+
+### インストール
+1. `npm init -y`
+2. `npm install next react react-dom`
+3. `npm install react-bootstrap bootstrap`
+
+### 起動方法
+1. ソースフォルダ上で、`npm run dev` を起動しておく  
+   (package.json で dev を定義)
+2. `http://localhost:3000/` を開く
+
+### 参照
+- [React Bootstrap Getting Started Introduction](https://react-bootstrap.github.io/getting-started/introduction/)
