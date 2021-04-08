@@ -1,13 +1,15 @@
-import BsStepper from 'bs-stepper';
+import Stepper from 'bs-stepper';
 import React, { Component } from 'react';
 
-class Stepper extends Component {
+class BsStepper extends Component {
 
   componentDidMount() {
+/*
     this.stepper = new BsStepper(this.stepperElement, {
       linear: false,
       animation: true
     });
+*/
   }
 
   onSubmit(e) {
@@ -19,4 +21,4 @@ class Stepper extends Component {
   }
 }
 
-export default Stepper;
+export default BsStepper;
