@@ -133,7 +133,17 @@ Webpack Loader を使用して、バンドル前の変換を行う。
 
 ---
 
-## [08-bs-steper](#08-bs-stepper)
+## [08-bs-stepper](#08-bs-stepper)
 
-### 参照
+### [08-bs-stepper/02-javascript](08-bs-stepper/02-javascript)
+
+#### 概要
+
+#### インストール
+1. `npm init -y`
+2. `npm install bootstrap bs-stepper`
+
+#### 起動方法
+
+#### 参照
 - [Johann-S / bs-stepper](https://github.com/Johann-S/bs-stepper/blob/master/README.md)
