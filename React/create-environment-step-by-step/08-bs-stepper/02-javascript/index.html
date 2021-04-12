@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col-md-12 mt-5">
           <h2>Linear stepper</h2>
-          <div id="stepper1" class="bs=stepper">
+          <div id="stepper1" class="bs-stepper">
             <div class="bs-stepper-header">
               <div class="step" data-target="#test-l-1">
                 <button type="button" class="btn step-trigger">
@@ -53,6 +53,48 @@
             </div>
           </div>
         </div>
+        <div class="col-md-12 mt-5">
+          <h2>Non linear stepper</h2>
+          <div id="stepper2" class="bs-stepper">
+            <div class="bs-stepper-header">
+              <div class="step" data-target="#test-nl-1">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">1</span>
+                  <span class="bs-stepper-label">First step</span>
+                </button>
+              </div>
+              <div class="line"></div>
+              <div class="step" data-target="#test-nl-2">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">2</span>
+                  <span class="bs-stepper-label">Second step</span>
+                </button>
+              </div>
+              <div class="line"></div>
+              <div class="step" data-target="#test-nl-3">
+                <button class="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">3</span>
+                  <span class="bs-stepper-label">Third step</span>
+                </button>
+              </div>
+            </div>
+            <div class="bs-stepper-content">
+              <div id="test-nl-1" class="content">
+                <p class="text-center">test 3</p>
+                <button class="btn btn-primary" onclick="stepper2.next()">next</button>
+              </div>
+              <div id="test-nl-2" class="content">
+                <p class="text-center">test 4</p>
+                <button class="btn btn-primary" onclick="stepper2.next()">next</button>
+              </div>
+              <div id="test-nl-3" class="content">
+                <p class="text-center">test 5</p>
+                <button class="btn btn-primary" onclick="stepper2.next()">next</button>
+                <button class="btn btn-primary" onclick="stepper2.previous()">previous</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <script src="./node_modules/bs-stepper/dist/js/bs-stepper.js"></script>
@@ -64,6 +106,11 @@
       });
       stepper1Node.addEventListener('shown.bs-stepper', function (event) {
         console.warn('shown.bs-stepper', event);
+      });
+
+      var stepper2 = new Stepper(document.querySelector('#stepper2'), {
+        linear: false,
+        animation: true
       });
     </script>
   </body>
