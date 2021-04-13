@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/bs-stepper/dist/css/bs-stepper.css">
+    <title>bs-steper virtual test</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>bs-stepper</h1>
+      <div class="row">
+        <div class="col-md-12 mt-5">
+          <h2>Linear stepper</h2>
+          <div id="stepper1" class="bs-stepper">
+            <div class="bs-stepper-header">
+              <div class="step" data-target="#test-l-1">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">1</span>
+                  <span class="bs-stepper-label">First step</span>
+                </button>
+              </div>
+              <div class="line"></div>
+              <div class="step" data-target="#test-l-2">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">2</span>
+                  <span class="bs-stepper-label">Second step</span>
+                </button>
+              </div>
+              <dic class="line"></dic>
+              <div class="step" data-target="#test-l-3">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">3</span>
+                  <span class="bs-stepper-label">Third step</span>
+                </button>
+              </div>
+            </div>
+            <div class="bs-stepper-content">
+              <div id="test-l-1" class="content">
+                <p class="text-center">test 1</p>
+                <button class="btn btn-primary stepper1-next">Next</button>
+              </div>
+              <div id="test-l-2" class="content">
+                <p class="text-center">test 2</p>
+                <button class="btn btn-primary stepper1-next">Next</button>
+              </div>
+              <div id="test-l-3" class="content">
+                <p class="text-center">test 3</p>
+                <button class="btn btn-primary stepper1-next">Next</button>
+                <button class="btn btn-primary stepper1-prev">Previous</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 mt-5">
+          <h2>Non linear stepper</h2>
+          <div id="stepper2" class="bs-stepper">
+            <div class="bs-stepper-header">
+              <div class="step" data-target="#test-nl-1">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">1</span>
+                  <span class="bs-stepper-label">First step</span>
+                </button>
+              </div>
+              <div class="line"></div>
+              <div class="step" data-target="#test-nl-2">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">2</span>
+                  <span class="bs-stepper-label">Second step</span>
+                </button>
+              </div>
+              <div class="line"></div>
+              <div class="step" data-target="#test-nl-3">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">3</span>
+                  <span class="bs-stepper-label">Third step</span>
+                </button>
+              </div>
+            </div>
+            <div class="bs-stepper-content">
+              <div id="test-nl-1" class="content">
+                <p class="text-center">test 3</p>
+                <button class="btn btn-primary stepper2-next">next</button>
+              </div>
+              <div id="test-nl-2" class="content">
+                <p class="text-center">test 4</p>
+                <button class="btn btn-primary stepper2-next">next</button>
+              </div>
+              <div id="test-nl-3" class="content">
+                <p class="text-center">test 5</p>
+                <button class="btn btn-primary stepper2-next">next</button>
+                <button class="btn btn-primary stepper2-prev">previous</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 mt-5">
+          <h2>Vertical stepper</h2>
+          <div id="stepper3" class="bs-stepper vertical">
+            <div class="bs-stepper-header">
+              <div class="step" data-target="#test-lv-1">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">1</span>
+                  <span class="bs-stepper-label">First step</span>
+                </button>
+              </div>
+              <div class="line"></div>
+              <div class="step" data-target="#test-lv-2">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">2</span>
+                  <span class="bs-stepper-label">Second step</span>
+                </button>
+              </div>
+              <div class="line"></div>
+              <div class="step" data-target="#test-lv-3">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">3</span>
+                  <span class="bs-stepper-label">Third step</span>
+                </button>
+              </div>
+            </div>
+            <div class="bs-stepper-content">
+              <div id="test-lv-1" class="content">
+                <p class="text-center">test 3</p>
+                <button class="btn btn-primary stepper3-next">Next</button>
+                <button class="btn btn-primary stepper3-prev">Previous</button>
+              </div>
+              <div id="test-lv-2" class="content">
+                <p class="text-center">test 4</p>
+                <button class="btn btn-primary stepper3-next">Next</button>
+                <button class="btn btn-primary stepper3-prev">Previous</button>
+              </div>
+              <div id="test-lv-3" class="content">
+                <p class="text-center">test 5</p>
+                <button class="btn btn-primary stepper3-next">Next</button>
+                <button class="btn btn-primary stepper3-prev">Previous</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 mt-5">
+          <h2>Linear vertical stepper without fade</h2>
+          <div id="stepper4" class="bs-stepper vertical">
+            <div class="bs-stepper-header">
+              <div class="step" data-target="#test-vlnf-1">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">1</span>
+                  <span class="bs-stepper-label">First step</span>
+                </button>
+              </div>
+              <div class="line"></div>
+              <div class="step" data-target="#test-vlnf-2">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">2</span>
+                  <span class="bs-stepper-label">Second step</span>
+                </button>
+              </div>
+              <div class="line"></div>
+              <div class="step" data-target="#test-vlnf-3">
+                <button type="button" class="btn step-trigger">
+                  <span class="bs-stepper-circle">3</span>
+                  <span class="bs-stepper-label">Third step</span>
+                </button>
+              </div>
+            </div>
+            <div class="bs-stepper-content">
+              <div id="test-vlnf-1" class="content">
+                <p class="text-center">test 1</p>
+                <button class="btn btn-primary stepper4-next">Next</button>
+              </div>
+              <div id="test-vlnf-2" class="content">
+                <p class="text-center">test 2</p>
+                <button class="btn btn-primary stepper4-next">Next</button>
+                <button class="btn btn-primary stepper4-prev">Previous</button>
+              </div>
+              <div id="test-vlnf-3" class="content">
+                <p class="text-center">test 3</p>
+                <button class="btn btn-primary stepper4-next">Next</button>
+                <button class="btn btn-primary stepper4-prev">Previous</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="dist/main.js">
+    </script>
+  </body>
+</html>
