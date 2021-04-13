@@ -135,15 +135,19 @@ Webpack Loader を使用して、バンドル前の変換を行う。
 
 ## [08-bs-stepper](#08-bs-stepper)
 
-### [08-bs-stepper/02-javascript](08-bs-stepper/02-javascript)
+### 概要
+[bs-stepper](https://github.com/Johann-S/bs-stepper)に関して、３ステップで検証する
+1. [全てをマークアップで実装する](https://github.com/Johann-S/bs-stepper#html-markup)  
+   これだけでは、動かない
+2. [JavaScript](https://github.com/Johann-S/bs-stepper#javascript)  
+   必要なモジュールを、CDNではなく npm にて取得する
+3. webpack にて、css, js をバンドルしてみる   
 
-#### 概要
+### インストール
+各フォルダの　package.json を参照
 
-#### インストール
-1. `npm init -y`
-2. `npm install bootstrap bs-stepper`
-
-#### 起動方法
+### 起動方法
+各フォルダの、index.html をローカルで開く
 
 #### 参照
 - [Johann-S / bs-stepper](https://github.com/Johann-S/bs-stepper/blob/master/README.md)
