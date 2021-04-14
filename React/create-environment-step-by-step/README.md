@@ -133,7 +133,7 @@ Webpack Loader を使用して、バンドル前の変換を行う。
 
 ---
 
-## [08-bs-stepper](#08-bs-stepper)
+## [08-bs-stepper](08-bs-stepper)
 
 ### [08-bs-stepper/02-javascript](08-bs-stepper/02-javascript)
 
@@ -147,3 +147,7 @@ Webpack Loader を使用して、バンドル前の変換を行う。
 
 #### 参照
 - [Johann-S / bs-stepper](https://github.com/Johann-S/bs-stepper/blob/master/README.md)
+
+---
+
+## [99-nextjs](99-nextjs)
