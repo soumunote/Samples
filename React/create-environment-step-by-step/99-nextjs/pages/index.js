@@ -1,15 +1,11 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
+const Stepper = dynamic(
+  () => import('../components/stepper.js'),
+  { ssr: false }
+);
 
-function index() {
+export default function() {
   return (
-    <div class="col-md-12 mt-5">
-      <div id="stepper" class="bs-stepper">
-        <div class="bs-stepper-header">
-          <div class=
-        </div>
-      </div>
-    </div>
+    <Stepper/>
   );
 }
-
-export default index;
