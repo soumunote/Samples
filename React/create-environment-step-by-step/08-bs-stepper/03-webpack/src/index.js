@@ -1,4 +1,6 @@
-const Stepper = require('bs-stepper');
+import Stepper from 'bs-stepper';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bs-stepper/dist/css/bs-stepper.min.css";
 
 document.addEventListener('DOMContentLoaded', function() {
 
