@@ -3,11 +3,11 @@ import BsStepper from 'bs-stepper';
 
 function Step(props) {
   return (
-    <div class="step" data-target="#dneo">
-    <button type="button" class="btn step-trigger">
-      <span class="bs-stepper-circle">{props.step}</span>
-      <span class="bs-stepper-label">{props.label}</span>
-    </button>
+    <div class="step" data-target={props.target}>
+      <button type="button" class="btn step-trigger">
+        <span class="bs-stepper-circle">{props.step}</span>
+        <span class="bs-stepper-label">{props.label}</span>
+      </button>
     </div>
   );
 }
@@ -18,7 +18,7 @@ class Stepper extends React.Component {
   }
 
   componentDidMount() {
-    this.stepper = new BsStepper(document.querySelector('#stepper'), {
+    this.stepper = new BsStepper(document.querySelector(this.props.id), {
       linear: false,
       animation: true
     });
@@ -30,7 +30,7 @@ class Stepper extends React.Component {
 
   render() {
     return (
-      <div id="stepper" class="bs-stepper">
+      <div id={this.props.id} class="bs-stepper">
         {this.props.children}
       </div>
     );

@@ -6,26 +6,20 @@ const Stepper = dynamic(
   () => import('../components/stepper.js'),
   { ssr: false }
 );
+Stepper.Step = dynamic(
+  () => import('../components/stepper.js').then(modules => modules.Step),
+  { ssr: false }
+);
 
-export default function() {
+export default function Index() {
   return (
-    <Stepper>
+    <Stepper id="stepper1">
       <div class="bs-stepper-header">
-        <Stepper.Step step="1" label="Connect to desknet's Neo"/>
+        <Stepper.Step step="1" target="#dneo" label="Connect to desknet's Neo" />
         <div class="line"></div>
-        <div class="step" data-target="#google">
-          <button type="button" class="btn step-trigger">
-            <span class="bs-stepper-circle">2</span>
-            <span class="bs-stepper-label">Connect to Google</span>
-          </button>
-        </div>
+        <Stepper.Step step="2" target="#google" label="Connect to Google" />
         <div class="line"></div>
-        <div class="step" data-target="#complete">
-          <button type="button" class="btn step-trigger">
-            <span class="bs-stepper-circle">3</span>
-            <span class="bs-stepper-label">Comolete!</span>
-          </button>
-        </div>
+        <Stepper.Step step="3" target="#complete" label="Comolete!" />
       </div>
       <div class="bs-stepper-content">
         <div id="dneo" class="content">
