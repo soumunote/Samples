@@ -1,12 +1,12 @@
-import React, { Children } from 'react';
+import React from 'react';
 import BsStepper from 'bs-stepper';
 
 function Step(props) {
   return (
-    <div class="step" data-target={props.target}>
-      <button type="button" class="btn step-trigger">
-        <span class="bs-stepper-circle">{props.step}</span>
-        <span class="bs-stepper-label">{props.label}</span>
+    <div className="step" data-target={props.target}>
+      <button type="button" className="btn step-trigger">
+        <span className="bs-stepper-circle">{props.step}</span>
+        <span className="bs-stepper-label">{props.label}</span>
       </button>
     </div>
   );
@@ -18,7 +18,7 @@ class Stepper extends React.Component {
   }
 
   componentDidMount() {
-    this.stepper = new BsStepper(document.querySelector(this.props.id), {
+    this.stepper = new BsStepper(document.querySelector(`#${this.props.id}`), {
       linear: false,
       animation: true
     });
@@ -30,7 +30,7 @@ class Stepper extends React.Component {
 
   render() {
     return (
-      <div id={this.props.id} class="bs-stepper">
+      <div id={this.props.id} className="bs-stepper">
         {this.props.children}
       </div>
     );
