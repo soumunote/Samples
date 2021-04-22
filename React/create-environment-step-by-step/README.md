@@ -95,6 +95,16 @@ Webpack Loader を使用して、バンドル前の変換を行う。
 - [webpack babel-loader](https://webpack.js.org/loaders/babel-loader/)
 
 ---
+## [05a-html-webpack-plugin](05a-html-webpack-plugin)
+### 概要
+Create React App を参考にもう少し研究
+- index.html の &lt;script&gt; タグ自体を埋め込む
+
+### 参照
+- [HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/)
+- [Create React App](https://create-react-app.dev/docs/getting-started)
+
+---
 
 ## [06-simple-nextjs](06-simple-nextjs)
 
