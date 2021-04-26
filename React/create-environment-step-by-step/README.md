@@ -169,3 +169,6 @@ Create React App を参考にもう少し研究
 ## [99-bootstrap](99-bootstrap)
 
 [Why React-Bootstrap?](https://react-bootstrap.github.io/getting-started/why-react-bootstrap/)
+
+## [99-react-bootstrap](99-react-bootstrap)
+webpack-dev-server, react-bootstrap, style-loader, css-loader を使用
