@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"  content="A stepper plugin for Bootstrap 4.">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="node_modules/bs-stepper/dist/css/bs-stepper.css">
+    <link rel="stylesheet" href="node_modules/bs-stepper/dist/js/bs-stepper.js">
+    <title>Bootstrap stepper</title>
+  </head>
+  <body>
+    <div class="bs-stepper">
+      <div class="bs-stepper-header" role="tablist">
+        <div class="step" data-target="#logins-part">
+          <button type="button" class="step-trigger" role="tab" id="logins-part-trigger">
+            <span class="bs-stepper-circle">1</span>
+            <span class="bs-stepper-label">Logins</span>
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#information-part">
+          <button type="button" class="step-trigger" role="tab" id="information-part-trigger">
+            <span class="bs-stepper-circle">2</span>
+            <span class="bs-stepper-label">Various information</span>
+          </button>
+        </div>
+      </div> 
+      <div class="bs-stepper-content">
+        <div id="logins-part" class="content" role="tabpanel"></div>
+        <div id="information-part" class="content" role="tabpanel"></div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function() {
+        var stepper = new Stepper(document.querySelector('.bs-stepper'))
+      });
+    </script>
+  </body>
+</html>
