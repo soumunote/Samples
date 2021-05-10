@@ -413,4 +413,8 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
+# nextjs
+.next
+dist
+
 # End of https://www.gitignore.io/api/java,react,basic,visualstudio,visualstudiocode
