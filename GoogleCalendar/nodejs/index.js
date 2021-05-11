@@ -25,7 +25,6 @@ catch (err) {
   }
 }
 
-
 const accessToken = authorize(credentials);
 
 /**
