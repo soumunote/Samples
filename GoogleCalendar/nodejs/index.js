@@ -5,31 +5,78 @@ const { google } = require('googleapis');
 
 const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 
-const CREDENTIALS_PATH = path.join(__dirname, 'credentials.json');
-// token.json ファイルは、ユーザのアクセストークン及びリフレッシュトークンを保存する
-// 最初に認証にが成功した際に自動的に作成される。
-const TOKEN_PATH = path.join(__dirname, 'token.json');
+/**
+ * client_id, client_secret　等をローカルファイル(credentials.json)から取得する
+ * credentials.json は事前に Cloud Console からダウンロードしておく
+ * @return {string} credentials object
+ */
+function getCredentials()
+{
+  const CREDENTIALS_PATH = path.join(__dirname, 'credentials.json');
+  const credentials;
+  try {
+    credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH));
+  }
+  catch (err) {
+    if (err.code === 'ENOENT') {
+      console.err(`credential(${CREDENTIALS_PATH}) not found.`);
+      return credentials;
+    }
+    else {
+      throw err;
+    }
+  }
+}
 
-// client secrets をローカルファイル(credentials.json)から取得する
-const credentials;
-try {
-  credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH));
-}
-catch (err) {
-  if (err.code === 'ENOENT') {
-    console.log(`credential(${CREDENTIALS_PATH}) not found.`);
-    process.exit(1);
+/**
+ * アクセストークンを取得する。
+ * @param {google.auth.OAuth2} oAuth2Client (client_id, client_secret, redirect_uris)
+ */
+function getAccessToken(oAuth2Client) {
+  // token.json ファイルは、ユーザのアクセストークン及びリフレッシュトークンを保存する
+  // 最初に認証にが成功した際に自動的に作成される。
+  const TOKEN_PATH = path.join(__dirname, 'token.json');
+
+  if (!fs.existsSync(TOKEN_PATH)) {
+    const authUrl = oAuth2Client.generateAuthUrl({
+      access_type: 'offline'/*=サーバサイド向け, online=クライアント向け*/,
+      scope: SCOPES,
+    });
+    console.log('Authorize this app by visiting this url:', authUrl);
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+    });
+    rl.question('Enter the code from that page here: ', code => {
+      rl.close();
+  
+      oAuth2Client.getToken(code, (err, token) => {
+        if (err) {
+          return console.err("Error retrieving access token", err);
+        }
+        fs.writeFile(TOKEN_PATH, JSON.stringify(token), err => {
+          if (err) {
+            return console.error(err);
+          }
+        });
+      });
+    });
+
+
   }
-  else {
-    throw err;
-  }
+
+  const token = fs.readFileSync(TOKEN_PATH);
+  oAuth2Client.setCredentials(JSON.parse(token));
 }
+
+
 
 const accessToken = authorize(credentials);
 
 /**
  * 与えられた credentials から OAuth2 Client を作成する
- * @param {Object} credentials 
+ * @param {Object} credentials
+ * @return {string} 
  */
 function authorize(credentials) {
   const {client_secret, client_id, redirect_uris} = credentials.installed;
@@ -41,34 +88,6 @@ function authorize(credentials) {
     }
     oAuth2Client.setCredentials(JSON.parse(token));
     return oAuth2Client;
-  });
-}
-
-function getAccessToken(oAuth2Client) {
-  const authUrl = oAuth2Client.generateAuthUrl({
-    access_type: 'offline'/*=サーバサイド向け, online=クライアント向け*/,
-    scope: SCOPES,
-  });
-  console.log('Authorize this app by visiting this url:', authUrl);
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-  rl.question('Enter the code from that page here: ', code => {
-    rl.close();
-
-    oAuth2Client.getToken(code, (err, token) => {
-      if (err) {
-        return console.err("Error retrieving access token", err);
-      }
-      oAuth2Client.setCredentials(token);
-      fs.writeFile(TOKEN_PATH, JSON.stringify(token), err => {
-        if (err) {
-          return console.error(err);
-        }
-      });
-    });
-  
   });
 }
 
