@@ -54,7 +54,7 @@ async function downloadAccessToken(oAuth2Client) {
   });
   const question = util.promisify(rl.question).bind(rl);
   //const question = util.promisify(rl.question);
-  const code = question('Enter the code from that page here: ');
+  const code = await question('Enter the code from that page here: ');
   const r = await oAuth2Client.getToken(code);
   return r.tokens;
 }
