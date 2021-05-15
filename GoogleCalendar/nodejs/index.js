@@ -1,3 +1,15 @@
+/**
+ * Google Calendar アクセスサンプルアプリケーション
+ *   - Original: https://developers.google.com/calendar/quickstart/nodejs  
+ *     詳細を理解する為に、若干アレンジ(エラー処理省略、非同期ルーチンを同期に変更)
+ *   - 事前準備
+ *     Cloud Console から [OAuth2クライアントID]をダウンロードし、
+ *     credentials.json として保存 
+ *   - token.json 無い場合認可画面を表示してアクセストークンを取得後保存する
+ *                ある場合、そのまま利用する
+ *   - google.auth 関連のソース
+ *     https://github.com/googleapis/google-auth-library-nodejs/tree/master/src/auth
+ */
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
@@ -26,22 +38,11 @@ function getCredentials()
 }
 
 /**
- * アクセストークンを取得する。
- * @param {google.auth.OAuth2} oAuth2Client (client_id, client_secret, redirect_uris)
+ * 認可画面を表示して認可コードを取得、(レスポンスに含まれる認可コードをマニュアル操作で受け取り)
+ * アクセストークンを取得する
+ * @param {google.auth.OAuth2} oAuth2Client 
+ * @returns {google.auth.Credentials} アクセストークン
  */
-async function getAccessToken(oAuth2Client) {
-  const TOKEN_PATH = path.join(__dirname, 'token.json');
-  let token;
-  if (fs.existsSync(TOKEN_PATH)) {
-    token = fs.readFileSync(TOKEN_PATH);
-  }
-  else {
-    token = await downloadAccessToken(oAuth2Client);
-    fs.writeFile(TOKEN_PATH, JSON.stringify(token));
-  }
-  oAuth2Client.setCredentials(JSON.parse(token));
-}
-
 async function downloadAccessToken(oAuth2Client) {
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: 'offline'/*=サーバサイド向け, online=クライアント向け*/,
@@ -55,22 +56,48 @@ async function downloadAccessToken(oAuth2Client) {
   const question = util.promisify(rl.question).bind(rl);
   //const question = util.promisify(rl.question);
   const code = await question('Enter the code from that page here: ');
-  const r = await oAuth2Client.getToken(code);
-  return r.tokens;
+  const {tokens} = await oAuth2Client.getToken(code);
+  return tokens;
+}
+
+/**
+ * アクセストークンを取得する
+ *   保存済みのアクセストークンが
+ *     ある場合、それを返す
+ *     ない場合、一連の手順を実行して、それを返す(保存もする)
+ * @param {google.auth.OAuth2} oAuth2Client 
+ * @returns {google.auth.Credentials} アクセストークン
+ */
+async function getAndSaveAccessToken(oAuth2Client) {
+  const TOKEN_PATH = path.join(__dirname, 'token.json');
+  let token;
+  if (fs.existsSync(TOKEN_PATH)) {
+    token = JSON.parse(fs.readFileSync(TOKEN_PATH));
+  }
+  else {
+    token = await downloadAccessToken(oAuth2Client);
+    fs.writeFileSync(TOKEN_PATH, JSON.stringify(token));
+  }
+  return token;
 }
 
 /**
  * 与えられた credentials から OAuth2 Client を作成する
  * @param {Object} credentials
- * @return {string} 
+ * @return {google.auth.OAuth2} 
  */
 async function authorize(credentials) {
   const {client_secret, client_id, redirect_uris} = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
-  await getAccessToken(oAuth2Client);
+  const token = await getAndSaveAccessToken(oAuth2Client);
+  oAuth2Client.setCredentials(token);
   return oAuth2Client;
 }
 
+/**
+ * Google Calendar のイベントを一覧する
+ * @param {google.auth.OAuth2} auth 
+ */
 function listEvents(auth) {
   const calendar = google.calendar({ version: 'v3', auth });
   calendar.events.list({
