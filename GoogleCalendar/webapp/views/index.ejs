@@ -6,7 +6,23 @@
   </head>
   <body>
     <h1>Your Google Calendar</h1>
-        <a href="/auth/">Login to Google!</a> 
-    </h1>
+    <% if (list) { %>
+      <table border="1">
+        <thead>
+          <th>開始</th>
+          <th>内容</th>
+        </thead>
+        <tbody>
+          <% list.forEach((event, key) => { %>
+            <tr>
+              <td><%= event.start.dateTime || event.start.date %></td>
+              <td><%= event.summary %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <a href="/auth/">Login to Google!</a> 
+    <% } %>
   </body>
 </html>
