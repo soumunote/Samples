@@ -24,8 +24,13 @@ app.use(session({
 app.get('/', async (req, res) => {
   let list = null;
   if (req.session.tokens) {
-    const authClient = auth.getAuthClient(req.session.tokens);
-    list = await auth.listEvents(authClient);
+    try {
+      const authClient = auth.getAuthClient(req.session.tokens);
+      list = await auth.listEvents(authClient);
+    }
+    catch (err) {
+      console.error(err);
+    }
   }
   console.log(session.authClient);
   res.render("index.ejs", {
