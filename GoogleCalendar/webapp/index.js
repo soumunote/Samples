@@ -13,13 +13,29 @@ app.set('view engine', 'ejs');
 app.use(session({
   secret: 'crazy cat',
   resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true},
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    secure: false,
+    maxage: 1000 * 60 * 30,
+  },
 }));
 
-app.get('/',(req, res) => {
-  res.render("index.ejs", {});
-  console.log(req.session);
+app.get('/', async (req, res) => {
+  let list = null;
+  if (req.session.tokens) {
+    try {
+      const authClient = auth.getAuthClient(req.session.tokens);
+      list = await auth.listEvents(authClient);
+    }
+    catch (err) {
+      console.error(err);
+    }
+  }
+  console.log(session.authClient);
+  res.render("index.ejs", {
+    list: list
+  });
 });
 
 
@@ -35,7 +51,7 @@ app.get('/auth/', async (req, res) => {
   }
 
   if (tokens) {
-    req.session.authClient = auth.getAuthClient(tokens);    
+    req.session.tokens = tokens;    
     res.redirect('/');
   }
   else {

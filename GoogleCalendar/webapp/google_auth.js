@@ -86,3 +86,25 @@ exports.getToken = async function(code) {
     throw err;
   }
 }
+
+/**
+ * Google Calendar のイベントを一覧する
+ * @param {google.auth.OAuth2} auth 
+ */
+exports.listEvents = async function(auth) {
+  const calendar = google.calendar({ version: 'v3', auth });
+  try {
+    const res = await calendar.events.list({
+      calendarId: 'primary',
+      timeMin: (new Date()).toISOString(),
+      maxResults: 10,
+      singleEvents: true,
+      orderBy: 'startTime',
+    });
+    return res.data.items;
+  }
+  catch (err) {
+    console.error(err);
+    return null;
+  }
+}
