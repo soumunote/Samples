@@ -1,5 +1,5 @@
 Private Declare Function VarR8FromCy Lib "oleaut32" (ByVal cy As Currency, ByRef r8 As Double) As Long
-Private Declare Function VarR8FromCyAny Lib "oleaut32" Alias "VarR8FromCy" (ByVal lo As Long, ByVal hi As Long, ByRef r8 As Double) As Long
+Private Declare Function VarR8FromCyHiLo Lib "oleaut32" Alias "VarR8FromCy" (ByVal lo As Long, ByVal hi As Long, ByRef r8 As Double) As Long
 
 Private Sub ConvertCurrency()
 
@@ -19,7 +19,7 @@ Private Sub ConvertCurrency()
     '
     Dim lo As Long: lo = 654321
     Dim hi As Long: hi = 0
-    Call VarR8FromCyAny(lo, hi, r)
+    Call VarR8FromCyHiLo(lo, hi, r)
     MsgBox r
     
 End Sub
