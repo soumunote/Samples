@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Hello{
+public class SampleCompare {
     public static void Main()
     {
         List<int> list;
