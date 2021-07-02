@@ -244,6 +244,19 @@ standalone.static.path=C:\app\oracle\ords\apex\images
 C:\app\oracle\ords>java -jar ords.war standalone
 ```
 
+### 11.TOMCAT へのデプロイ
+1. `ords.jar` を tomcat webapp フォルダにコピーする
+   ```
+   copy C:\app\oracle\ords\ords.war C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps
+   ```
+2. tomcat webapp フォルダに`i`というフォルダを作成し、 `C:\app\oracle\ords\apex\images\`配下のファイルを全てコピーする
+   ```
+   copy C:\app\oracle\ords\apex\images\* C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\i
+   ```
+3. `http://localhost:8080/i/apex_version.txt`にアクセスして`Application Express Version:  20.1`のように表示されると
+   上記2の手順は大丈夫
+4. `C:\app\oracle\ords\config`配下のフォルダに、tocat起動ユーザがアクセスできるようにアクセス権を設定する。
+   
 ---
 ## 作成されるユーザ
 |スキーマ|作成されるステップ|役割|
