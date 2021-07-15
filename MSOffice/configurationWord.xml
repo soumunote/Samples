@@ -1,0 +1,24 @@
+<Configuration ID="d74fd28b-fe69-4ee6-ac3f-a853a27f07d9">
+  <Add OfficeClientEdition="64" Channel="PerpetualVL2019" Version="16.0.10376.20033">
+    <Product ID="Word2019Volume" PIDKEY="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX">
+      <Language ID="ja-jp" />
+      <ExcludeApp ID="Groove" />
+      <ExcludeApp ID="OneDrive" />
+      <ExcludeApp ID="OneNote" />
+      <ExcludeApp ID="Outlook" />
+      <ExcludeApp ID="PowerPoint" />
+      <ExcludeApp ID="Publisher" />
+      <ExcludeApp ID="Excel" />
+    </Product>
+    <Product ID="LanguagePack">
+      <Language ID="ja-jp" />
+    </Product>
+  </Add>
+  <Property Name="SharedComputerLicensing" Value="0" />
+  <Property Name="SCLCacheOverride" Value="0" />
+  <Property Name="AUTOACTIVATE" Value="1" />
+  <Property Name="FORCEAPPSHUTDOWN" Value="FALSE" />
+  <Property Name="DeviceBasedLicensing" Value="0" />
+  <Updates Enabled="TRUE" />
+  <Display Level="Full" AcceptEULA="TRUE" />
+</Configuration>
