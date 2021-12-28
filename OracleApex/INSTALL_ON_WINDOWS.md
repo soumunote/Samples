@@ -34,6 +34,10 @@ SQL> conn sys as sysdba
 接続されました。
 SQL> @apexins.sql SYSAUX SYSAUX TEMP /i/
 ```
+#### 注意
+PDB にインストールする際は、PDBが起動していることを確認すること。  
+以下のリンクが有効化は不明  
+[Installing Application Express into Different PDBs](https://docs.oracle.com/en/database/oracle/application-express/21.1/htmig/installing-apex-into-different-PDBs.html#GUID-91809585-A1BA-44B5-8AD5-8FB44FB61A3F)
 
 ### 3. Instance Administrator パスワードの変更(作成)  
 手順 1 で解凍したしたフォルダをカレントにして、SQL*Plus を起動し、  
@@ -228,6 +232,31 @@ APEX_REST_PUBLIC_USERのデータベース・パスワードを入力してく�
 
   SQL> @load_ja.sql
   ```
+### 10.STANDALONEモードでの自動起動
+`C:\app\oracle\ords\standalone\standalone.properties`ファイルを作成する
+```
+standalone.static.context.path=/i
+standalone.static.do.not.prompt=true
+standalone.static.path=C:\app\oracle\ords\apex\images
+```
+これで、以下のコマンドで起動可能
+```
+C:\app\oracle\ords>java -jar ords.war standalone
+```
+
+### 11.TOMCAT へのデプロイ
+1. `ords.jar` を tomcat webapp フォルダにコピーする
+   ```
+   copy C:\app\oracle\ords\ords.war C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps
+   ```
+2. tomcat webapp フォルダに`i`というフォルダを作成し、 `C:\app\oracle\ords\apex\images\`配下のファイルを全てコピーする
+   ```
+   copy C:\app\oracle\ords\apex\images\* C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\i
+   ```
+3. `http://localhost:8080/i/apex_version.txt`にアクセスして`Application Express Version:  20.1`のように表示されると
+   上記2の手順は大丈夫
+4. `C:\app\oracle\ords\config`配下のフォルダに、tocat起動ユーザがアクセスできるようにアクセス権を設定する。
+   
 ---
 ## 作成されるユーザ
 |スキーマ|作成されるステップ|役割|
