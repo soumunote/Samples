@@ -13,3 +13,18 @@ $ od --endian=big -A x -x file1
 000030 660a
 000032
 ```
+
+# free コマンドの total を確認する
+free コマンドの値の内容を確認する。(total = used + free + buff/cache)
+```
+$ free
+               total        used        free      shared  buff/cache   available
+Mem:         3951208      975012      287924        5132     2688272     2685772
+Swap:        2097148         524     2096624
+```
+```
+$ expr `free | sed -E -e 1d -e 3d  | awk -F' ' '{print  $3, "+", $4, "+", $6}'`
+3951208
+$ free | awk -F' ' 'NR==2{print  $3 + $4 + $6}'
+3951208
+```
