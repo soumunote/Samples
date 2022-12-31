@@ -7,7 +7,9 @@
 $orgFileName = "c:\tmp\secpolicy.org.inf"
 $newFileName = "c:\tmp\secpolicy.new.inf"
 
-mkdir c:\tmp
+if (-Not (Test-Path c:\tmp)) {
+  mkdir c:\tmp
+}
 secedit /export /cfg $orgFileName
 
 (Get-Content $orgFileName) | foreach {
