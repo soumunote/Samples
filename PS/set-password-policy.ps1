@@ -22,3 +22,5 @@ secedit /export /cfg $orgFileName
 } | Set-Content -Path $newFileName -Encoding Unicode
 
 secedit /configure /db secedit.sdb /cfg secpolicy.new.inf /log secpolicy.log 
+
+net user Administrator P@ssW0rd /ACTIVE:YES /EXPIRES:NEVER 
