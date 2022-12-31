@@ -1,7 +1,8 @@
- $policiesToReplace = @(
-  @{ name = "PasswordHistorySize";   old = 7;  new = 0  },
-  @{ name = "MaximumPasswordAge";    old = 90; new = -1 },
-  @{ name = "MinimumPasswordLength"; old = 14; new = 0  },
+#ps1_sysnative
+$policiesToReplace = @(
+  @{ name = "PasswordHistorySize";   old = 5;  new = 0  },
+  @{ name = "MaximumPasswordAge";    old = 42; new = -1 },
+  @{ name = "MinimumPasswordLength"; old = 12; new = 0  },
   @{ name = "PasswordComplexity";    old = 1;  new = 0  }
 )
 $orgFileName = "c:\tmp\secpolicy.org.inf"
@@ -21,6 +22,6 @@ secedit /export /cfg $orgFileName
   $line
 } | Set-Content -Path $newFileName -Encoding Unicode
 
-secedit /configure /db secedit.sdb /cfg secpolicy.new.inf /log secpolicy.log 
+secedit /configure /db secedit.sdb /cfg c:\tmp\secpolicy.new.inf /log c:\tmp\secpolicy.log 
 
 net user Administrator P@ssW0rd /ACTIVE:YES /EXPIRES:NEVER 
