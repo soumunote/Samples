@@ -7,7 +7,7 @@ $ screen /dev/tty.usbserial-110 9600,cs8,-parenb,-cstopb,ixon,ixoff
 
 # RTX シリーズ・シリアルのパラメータ
 |パラメータ|値|Screenコマンド|
-|--+--+--|
+|--|--|--|
 |ボーレート|9600|9600|
 |データ・ビット|8|cs8|
 |パリティ|なし|-parenb|
